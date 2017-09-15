@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#5C93E5</color>
+    <color name="colorPrimaryDark">#5C93E5</color>
+    <color name="colorAccent">#5C93E5</color>
+    <color name="black_overlay">#66000000</color>
+    <color name="blue" >#FF33B5E5</color>
+    <!--the best color blue-->
+    <color name="colorBlue">#14b0c7</color>
+    <color name="colorBlueDark">#1290a7</color>
+    <color name="ColorAccent">#13b0c7</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#FF040303</color>
+
+</resources>

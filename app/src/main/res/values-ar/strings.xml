@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name"> برنامج متابعة مرضى السكري والضغط </string>
+    <string name="NCD_Patient_Handbook">كتيب مريض مزمن</string>
+    <string name="AddSNN">  أدخل رقم الهوية </string>
+    <string name="Login"> تسجيل الدخول  </string>
+    <!--<string name="unrwa">  الأونروا </string>-->
+    <string name="Personal_data">البيانات الشخصية</string>
+    <string name="Lab_tests">فحوصات المختبر</string>
+    <string name="Deadlines">المواعيد</string>
+    <string name="The_pharmacy">الصيدلية</string>
+    <string name="Health_Tips">نصائح صحية</string>
+    <string name="notification">التنبيهات</string>
+    <string name="home">الرئيسية</string>
+
+    <string name="Arabic">العربية</string>
+    <string name="English">الانجليزية</string>
+</resources>
