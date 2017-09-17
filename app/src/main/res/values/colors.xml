@@ -11,5 +11,6 @@
     <color name="ColorAccent">#13b0c7</color>
     <color name="white">#ffffff</color>
     <color name="black">#FF040303</color>
+    <color name="shadow_start">#EEEEEE</color>
 
 </resources>

@@ -3,39 +3,55 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.twins.osama.finalproject.Fragments.PersonalDataFragment">
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="20dp">
 
-    <TextView
-        android:layout_marginTop="20dp"
-        android:id="@+id/peronal_name"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Sundus Ab Jw"
-        android:textSize="@dimen/titel"
-        android:textColor="@color/black"/>
-    <View
-        android:layout_below="@id/peronal_name"
-        android:id="@+id/view_personl"
-        android:layout_width="200dp"
-        android:layout_height="2dp"
-        android:background="@color/colorAccent"/>
-    <TextView
-        android:id="@+id/tvaddress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/view_personl"
-        android:text="My Address"
-        android:textSize="@dimen/textSize"/>
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:src="@drawable/blank_profile_picture"
-        android:id="@+id/circleView"
-        android:layout_alignParentRight="true"
-        />
-</RelativeLayout>
+        android:background="@color/shadow_start"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/peronal_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Sundus Ab Jw"
+            android:textColor="@color/black"
+            android:textSize="@dimen/titel" />
+
+        <View
+            android:id="@+id/view_personl"
+            android:layout_width="200dp"
+            android:layout_height="2dp"
+            android:layout_below="@id/peronal_name"
+            android:background="@color/colorAccent" />
+
+        <TextView
+            android:id="@+id/tvaddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/view_personl"
+            android:text="My Address"
+            android:textSize="@dimen/textSize" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circleView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/blank_profile_picture" />
+
+        <TextView
+            android:layout_width="@dimen/ic_size"
+            android:layout_height="@dimen/ic_size"
+            android:layout_alignBottom="@id/circleView"
+            android:layout_alignLeft="@id/circleView"
+            android:layout_marginLeft="35dp"
+            android:background="@drawable/circle_shape_white"
+            android:gravity="center"
+            android:text="+"
+            android:textSize="@dimen/titel"
+            android:textColor="@color/colorPrimaryDark"/>
+    </RelativeLayout>
 
 </FrameLayout>
