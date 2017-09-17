@@ -1,9 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context="com.twins.osama.finalproject.Activities.Login">
+    <LinearLayout
+        android:id="@+id/layout"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/logo"
+        android:layout_gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20dp"
+        android:orientation="vertical" >
+        <ImageView
+            android:layout_width="130dp"
+            android:layout_height="120dp"
+            android:layout_gravity="center"
+            android:background="@drawable/unrwa_logo" />
+        <TextView
+            android:id="@+id/textView"
 
-</android.support.constraint.ConstraintLayout>
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_alignParentLeft="false"
+            android:layout_alignParentStart="false"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:maxLength="50"
+            android:padding="5dp"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:text="@string/NCD_Patient_Handbook"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+     <EditText
+            android:id="@+id/LoginUser"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:hint="Enter your RCN"
+            android:inputType="number"
+            android:singleLine="true"
+            android:textColor="#2299de" />
+        <EditText
+            android:id="@+id/LoginPassword"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:inputType="textPassword"
+            android:singleLine="true"
+            android:textColor="#2299de" />
+
+        <Button
+            android:id="@+id/login"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:background="#5C93E5"
+            android:text="Login"
+            android:textColor="#fff"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
+</ScrollView>
