@@ -3,9 +3,11 @@ package com.twins.osama.finalproject.Activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -29,6 +31,7 @@ public class Login extends AppCompatActivity {
     private Button login;
     FirebaseDatabase database;
     SharedPrefUtil sharedPrefUtil;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,37 +41,48 @@ public class Login extends AppCompatActivity {
         login = (Button) findViewById(R.id.login);
         sharedPrefUtil = new SharedPrefUtil(Login.this);
         database = FirebaseDatabase.getInstance();
-        final Query patient = database.getReference().child("AddPatient");
+        final Query patient = database.getReference().child("AddPatient").orderByChild("RCN")
+                .equalTo(LoginUser.getText().toString().trim());
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                patient.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        if (dataSnapshot.exists()) {
-                            for (DataSnapshot data : dataSnapshot.getChildren()) {
-                                JSONObject dt = new JSONObject((Map) data.getValue());
-                                String uRCN = dt.optString("RCN");
-                                String uRRIS_SSN_NO = dt.optString("RRIS_SSN_NO");
-//                        String title = dt.optString("title");
+                database.getReference().child("AddPatient").orderByChild("RCN")
+                        .equalTo(LoginUser.getText().toString().trim())
+                        .addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                Log.i("aaaa", dataSnapshot.getValue().toString());
+
+                                if (dataSnapshot.exists()) {
+//                            for (DataSnapshot data : dataSnapshot.getChildren()) {
+                                    JSONObject dt = new JSONObject((Map) dataSnapshot.getValue());
+                                    Log.i("aaaa", "//"+dt.toString());
+
+                                    String uRCN = dt.optString("RCN");
+                                    String uRRIS_SSN_NO = dt.optString("RRIS_SSN_NO");
+                                    Log.i("aaaa", "//"+uRRIS_SSN_NO);
+//                        String title = dt.optString("title"
+//);
 //                        String body = dt.optString("body");
-                                if (uRCN.equals(LoginUser.getText())&&uRRIS_SSN_NO.equals(LoginPassword.getText())){
-                                    sharedPrefUtil.saveBoolean(STATUS_SHARED_PREF,true);
-                                    sharedPrefUtil.saveString(USER_RCN_LOGIN, LoginUser.getText()+"");
-                                    sharedPrefUtil.saveString(USER_SSN_LOGIN, LoginPassword.getText()+"");
-                                    startActivity(new Intent(Login.this, MainActivity.class));
-                                    finish();
-                                }
+                                    if (uRRIS_SSN_NO.equals(LoginPassword.getText().toString().trim())) {
+                                        sharedPrefUtil.saveBoolean(STATUS_SHARED_PREF, true);
+                                        sharedPrefUtil.saveString(USER_RCN_LOGIN, LoginUser.getText().toString().trim() + "");
+                                        sharedPrefUtil.saveString(USER_SSN_LOGIN, LoginPassword.getText().toString().trim() + "");
+                                        startActivity(new Intent(Login.this, MainActivity.class));
+                                        finish();
+                                    } else
+                                        Toast.makeText(Login.this, "Invalid RCN or Password", Toast.LENGTH_SHORT).show();
+                                } else
+                                    Toast.makeText(Login.this, "This account not found", Toast.LENGTH_SHORT).show();
                             }
-                        }
-                    }
+//                    }
 
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
+                            @Override
+                            public void onCancelled(DatabaseError databaseError) {
 
-                    }
-                });
+                            }
+                        });
 
             }
         });
