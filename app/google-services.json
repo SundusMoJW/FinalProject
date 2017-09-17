@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "36642608705",
+    "firebase_url": "https://webproject-83954.firebaseio.com",
+    "project_id": "webproject-83954",
+    "storage_bucket": "webproject-83954.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:36642608705:android:37aedee71a06c90f",
+        "android_client_info": {
+          "package_name": "com.twins.osama.finalproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "36642608705-gmsb3colrccrccbaldho4lmjpq6u2uom.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfh5JwF7bmDyzAbF4QNrq9gEjZi6UmoDY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
