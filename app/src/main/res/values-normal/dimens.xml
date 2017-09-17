@@ -12,5 +12,6 @@
     <dimen name="pading_plus_cart">2dp</dimen>
     <dimen name="map">150dp</dimen>
     <dimen name="hight_signup">150dp</dimen>
+    <dimen name="text_marginLeft">50dp</dimen>
 
 </resources>
