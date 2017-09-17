@@ -6,11 +6,15 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 
+import com.twins.osama.finalproject.Helpar.SharedPrefUtil;
 import com.twins.osama.finalproject.R;
+
+import static com.twins.osama.finalproject.Helpar.Const.STATUS_SHARED_PREF;
 
 public class Splash extends AppCompatActivity {
 
     private ImageView imSplash;
+    private SharedPrefUtil sharedPrefUtil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,16 +25,14 @@ public class Splash extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-//                Login login = new Login();
-//                sharedPrefUtil = new SharedPrefUtil(getApplicationContext());
-
-//                if (sharedPrefUtil.getBoolean(STATUS_SHARED_PREF)) {
-//                    startActivity(new Intent(Splash.this, MainActivity.class));
-//                    finish();
-//                } else {
+                sharedPrefUtil = new SharedPrefUtil(getApplicationContext());
+                if (sharedPrefUtil.getBoolean(STATUS_SHARED_PREF)) {
+                    startActivity(new Intent(Splash.this, MainActivity.class));
+                    finish();
+                } else {
                     startActivity(new Intent(Splash.this, Login.class));
                     finish();
-//                }
+               }
             }
         }, 2000);
     }
