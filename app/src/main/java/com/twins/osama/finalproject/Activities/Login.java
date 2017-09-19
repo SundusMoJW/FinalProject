@@ -57,18 +57,25 @@ public class Login extends AppCompatActivity {
                                 if (dataSnapshot.exists()) {
 //                            for (DataSnapshot data : dataSnapshot.getChildren()) {
                                     JSONObject dt = new JSONObject((Map) dataSnapshot.getValue());
-                                    Log.i("aaaa", "//"+dt.toString());
-
+//                                JSONObject dt = new JSONObject((Map) dataSnapshot.getChildren().);
+                                    Log.i("aaaa", "//" + dt.toString());
+//                                    Map<String, String> map=(Map<String, String>) dataSnapshot.getValue();
+//                                    Log.i("aaaa", "//"+map.toString());
+//                                    String uRCN=   map.get("RCN");
+//                                    String uRRIS_SSN_NO =   map.get("RRIS_SSN_NO");
                                     String uRCN = dt.optString("RCN");
                                     String uRRIS_SSN_NO = dt.optString("RRIS_SSN_NO");
-                                    Log.i("aaaa", "//"+uRRIS_SSN_NO);
+
+                                        Log.i("aaaa", "//" + dt.optString("RCN"));
+
 //                        String title = dt.optString("title"
 //);
+
 //                        String body = dt.optString("body");
                                     if (uRRIS_SSN_NO.equals(LoginPassword.getText().toString().trim())) {
                                         sharedPrefUtil.saveBoolean(STATUS_SHARED_PREF, true);
-                                        sharedPrefUtil.saveString(USER_RCN_LOGIN, LoginUser.getText().toString().trim() + "");
-                                        sharedPrefUtil.saveString(USER_SSN_LOGIN, LoginPassword.getText().toString().trim() + "");
+                                        sharedPrefUtil.saveString(USER_RCN_LOGIN, LoginUser.getText().toString().trim());
+                                        sharedPrefUtil.saveString(USER_SSN_LOGIN, LoginPassword.getText().toString().trim());
                                         startActivity(new Intent(Login.this, MainActivity.class));
                                         finish();
                                     } else
