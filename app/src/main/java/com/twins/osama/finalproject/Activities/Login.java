@@ -14,24 +14,30 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.twins.osama.finalproject.Classes.PersonalData;
 import com.twins.osama.finalproject.Helpar.SharedPrefUtil;
 import com.twins.osama.finalproject.R;
 
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.Map;
+
+import io.realm.Realm;
 
 import static com.twins.osama.finalproject.Helpar.Const.STATUS_SHARED_PREF;
 import static com.twins.osama.finalproject.Helpar.Const.USER_RCN_LOGIN;
 import static com.twins.osama.finalproject.Helpar.Const.USER_SSN_LOGIN;
 
 public class Login extends AppCompatActivity {
+    private Realm realm;
     EditText LoginPassword;
     EditText LoginUser;
     private Button login;
     FirebaseDatabase database;
     SharedPrefUtil sharedPrefUtil;
     String uRRIS_SSN_NO;
+    private ArrayList<PersonalData> personalDatas = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +48,8 @@ public class Login extends AppCompatActivity {
         sharedPrefUtil = new SharedPrefUtil(Login.this);
         database = FirebaseDatabase.getInstance();
 
+        Realm.init(getApplication());
+        realm = Realm.getDefaultInstance();
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,7 +77,7 @@ public class Login extends AppCompatActivity {
 //                                    Log.i("aaaa", "//"+map.toString());
 //                                    String uRCN=   map.get("RCN");
 //                                    String uRRIS_SSN_NO =   map.get("RRIS_SSN_NO");
-                                    String uRCN = dt.optString("RCN");
+
                                     uRRIS_SSN_NO = dt.optString("RRIS_SSN_NO");
 
                                     Log.i("aaaa", "//" + dt.optString("RCN"));
@@ -77,12 +85,35 @@ public class Login extends AppCompatActivity {
 
 //                        String title = dt.optString("title"
 //);
-
+//                                    private String RCN_NO;
+//                                    private String RrisFamilyId;
+//                                    private String Team;
+//                                    private String BloodType;
+//                                    private String Name;
+//                                    private String Address;
+//                                    private String Key;
 //                        String body = dt.optString("body");
                                     if (uRRIS_SSN_NO.equals(LoginPassword.getText().toString().trim())) {
+                                        String uRCN = dt.optString("RCN");
+                                        String RrisFamilyId = dt.optString("RCN");
+                                        String Team = dt.optString("RCN");
+                                        String BloodType = dt.optString("RCN");
+                                        String Name = dt.optString("RCN");
+                                        String Address = dt.optString("RCN");
+                                        String Key = dt.optString("RCN");
                                         sharedPrefUtil.saveBoolean(STATUS_SHARED_PREF, true);
                                         sharedPrefUtil.saveString(USER_RCN_LOGIN, LoginUser.getText().toString().trim());
                                         sharedPrefUtil.saveString(USER_SSN_LOGIN, LoginPassword.getText().toString().trim());
+
+                                        PersonalData pData=new PersonalData(uRCN,uRRIS_SSN_NO,RrisFamilyId,Team,BloodType,Name,Address,Key);
+                                        personalDatas.add(pData);
+                                        for (PersonalData b : personalDatas) {
+//                                             Persist your data easily
+                                            realm.beginTransaction();
+                                            realm.copyToRealm(b);
+                                            realm.commitTransaction();
+//                            Log.i("///", "///" + "" +/* b.getImages()+b.getTitels()*/meals.get(0).getName());
+                                        }
                                         startActivity(new Intent(Login.this, MainActivity.class));
                                         finish();
                                     } else

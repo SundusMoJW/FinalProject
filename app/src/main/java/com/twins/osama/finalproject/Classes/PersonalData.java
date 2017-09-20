@@ -8,6 +8,7 @@ import io.realm.RealmObject;
 
 public class PersonalData extends RealmObject {
     private String RCN_NO;
+    private String RRIS_SSN_NO;
     private String RrisFamilyId;
     private String Team;
     private String BloodType;
@@ -18,18 +19,28 @@ public class PersonalData extends RealmObject {
     public PersonalData() {
     }
 
-    public PersonalData(String RCN_NO, String rrisFamilyId, String team, String bloodType, String name, String address, String key) {
+    public PersonalData(String RCN_NO,String RRIS_SSN_NO, String rrisFamilyId, String team, String bloodType, String name, String address, String key) {
         this.RCN_NO = RCN_NO;
-        RrisFamilyId = rrisFamilyId;
-        Team = team;
-        BloodType = bloodType;
-        Name = name;
-        Address = address;
-        Key = key;
+        this.RrisFamilyId = rrisFamilyId;
+        this.Team = team;
+        this.BloodType = bloodType;
+        this.Name = name;
+        this.Address = address;
+        this.Key = key;
+        this.RRIS_SSN_NO=RRIS_SSN_NO;
+    }
+
+    public String getRRIS_SSN_NO() {
+        return RRIS_SSN_NO;
+    }
+
+    public void setRRIS_SSN_NO(String RRIS_SSN_NO) {
+        this.RRIS_SSN_NO = RRIS_SSN_NO;
     }
 
     public String getRCN_NO() {
         return RCN_NO;
+
     }
 
     public void setRCN_NO(String RCN_NO) {
