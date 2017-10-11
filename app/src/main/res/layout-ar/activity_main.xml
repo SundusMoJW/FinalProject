@@ -4,8 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layoutDirection="rtl"
-    android:textDirection="rtl"
     tools:context="com.twins.osama.finalproject.Activities.MainActivity"
     android:orientation="vertical">
 

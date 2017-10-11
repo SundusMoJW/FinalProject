@@ -4,7 +4,8 @@
     <string name="NCD_Patient_Handbook">كتيب مريض مزمن</string>
     <string name="AddSNN">  أدخل رقم الهوية </string>
     <string name="Login"> تسجيل الدخول  </string>
-    <!--<string name="unrwa">  الأونروا </string>-->
+    <string name="unrwa">  الأونروا </string>
+
     <string name="Personal_data">البيانات الشخصية</string>
     <string name="Lab_tests">فحوصات المختبر</string>
     <string name="Deadlines">المواعيد</string>
@@ -16,4 +17,16 @@
 
     <string name="Arabic">العربية</string>
     <string name="English">الانجليزية</string>
+    <string name="pass">كلمة السر</string>
+    <string name="Rcn">Enter your RCN</string>
+    <string name="ResoneVisit"> سبب الزيارة:</string>
+    <string name="DeadLine"> التاريخ:</string>
+    <string name="hour"> الساعة :</string>
+    <string name="Appoiment"> موعد الحجز</string>
+    <string name="DateAtt"> موعد الحضور إلى المركز الصحي :</string>
+    <string name="Labs">التحاليل</string>
+    <string name="NameLab">اسم التحليل</string>
+    <string name="Date">تاريخ التحليل:</string>
+    <string name="Rersult">نتيجة التحليل:</string>
+
 </resources>

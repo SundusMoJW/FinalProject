@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layoutDirection="rtl"
-    android:textDirection="rtl"
+    android:layoutDirection="ltr"
+    android:textDirection="ltr"
     android:background="@color/white"
     tools:context="com.twins.osama.finalproject.Activities.Login">
 
@@ -67,10 +67,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:background="@color/colorPrimary"
-            android:text="Login"
-            android:textSize="@dimen/titel"
             android:padding="5dp"
+            android:text="@string/Login"
             android:textColor="@color/white"
+            android:textSize="@dimen/titel"
             android:textStyle="bold" />
 
 

@@ -15,7 +15,19 @@
     <string name="personal_information">Personal Information</string>
     <string name="Arabic">Arabic</string>
     <string name="English">English</string>
+    <string name="Appoiment">Appointment</string>
+    <string name="ResoneVisit">Reason For Visit :</string>
+    <string name="DeadLine">DeadLine :</string>
+    <string name="hour">Hour :</string>
+    <string name="DateAtt"> Date of attendance to the health centre</string>
+    <string name="Labs">LABS</string>
+    <string name="NameLab">Name Lab :</string>
+    <string name="Date">Date Lab :</string>
+    <string name="Rersult">Result :</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="pass">Enter your password</string>
+    <string name="Rcn">Enter your RCN</string>
+
 </resources>

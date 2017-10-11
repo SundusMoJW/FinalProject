@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.Map;
 
 import io.realm.Realm;
+import io.realm.RealmResults;
 
 import static com.twins.osama.finalproject.Helpar.Const.STATUS_SHARED_PREF;
 import static com.twins.osama.finalproject.Helpar.Const.USER_RCN_LOGIN;
@@ -92,15 +93,22 @@ public class Login extends AppCompatActivity {
 //                                    private String Name;
 //                                    private String Address;
 //                                    private String Key;
-//                        String body = dt.optString("body");
                                     if (uRRIS_SSN_NO.equals(LoginPassword.getText().toString().trim())) {
+
+                                        realm.beginTransaction();
+                                        RealmResults<PersonalData> result = realm.where(PersonalData.class).findAll();
+                                        if (!(result.isEmpty())) {
+                                            result.deleteAllFromRealm();
+                                            realm.commitTransaction();
+                                        } else realm.cancelTransaction();
+
                                         String uRCN = dt.optString("RCN");
-                                        String RrisFamilyId = dt.optString("RCN");
-                                        String Team = dt.optString("RCN");
-                                        String BloodType = dt.optString("RCN");
-                                        String Name = dt.optString("RCN");
-                                        String Address = dt.optString("RCN");
-                                        String Key = dt.optString("RCN");
+                                        String RrisFamilyId = dt.optString("RRIS_Family_ID");
+                                        String Team = dt.optString("Team");
+                                        String BloodType = dt.optString("Blood_Type");
+                                        String Name = dt.optString("Patient_Name");
+                                        String Address = dt.optString("Address");
+                                        String Key = dt.optString("PatientId");
                                         sharedPrefUtil.saveBoolean(STATUS_SHARED_PREF, true);
                                         sharedPrefUtil.saveString(USER_RCN_LOGIN, LoginUser.getText().toString().trim());
                                         sharedPrefUtil.saveString(USER_SSN_LOGIN, LoginPassword.getText().toString().trim());
