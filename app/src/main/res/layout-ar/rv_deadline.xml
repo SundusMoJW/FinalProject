@@ -8,8 +8,8 @@
     android:clickable="true"
     android:focusable="true"
     android:background="#ffffff"
-    android:layoutDirection="ltr"
-    android:textDirection="ltr"
+    android:layoutDirection="rtl"
+    android:textDirection="rtl"
     app:cardElevation="2dp">
 
 

@@ -4,8 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_centerHorizontal="true"
-    android:layoutDirection="rtl"
-    android:textDirection="rtl"
+    android:layoutDirection="ltr"
+    android:textDirection="ltr"
     android:background="@drawable/back_splah"
     tools:context="com.twins.osama.finalproject.Activities.Splash">
    <TextView

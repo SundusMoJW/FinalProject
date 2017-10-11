@@ -2,6 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layoutDirection="ltr"
+    android:textDirection="ltr"
     tools:context="com.twins.osama.finalproject.Fragments.PersonalDataFragment">
 
     <LinearLayout
@@ -70,10 +72,11 @@
             android:elevation="@dimen/padding_icon" />
 
         <TextView
+            android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
-            android:text="RCN NO:"
+            android:text="@string/rcn_no"
             android:textColor="@color/black"
             android:textSize="@dimen/titel" />
 
@@ -90,7 +93,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
-            android:text="RRIS Family ID:"
+            android:text="@string/rris_family_id"
             android:textColor="@color/black"
             android:textSize="@dimen/titel" />
 
@@ -107,7 +110,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
-            android:text="Team:"
+            android:text="@string/team"
             android:textColor="@color/black"
             android:textSize="@dimen/titel" />
 
@@ -124,7 +127,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
-            android:text="Blood Type:"
+            android:text="@string/blood_type"
             android:textColor="@color/black"
             android:textSize="@dimen/titel" />
 
@@ -136,7 +139,6 @@
             android:text="2222222"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="@dimen/textSize" />
-
 
         <View
             android:layout_width="match_parent"
