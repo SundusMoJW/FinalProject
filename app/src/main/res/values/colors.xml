@@ -12,5 +12,6 @@
     <color name="white">#ffffff</color>
     <color name="black">#FF040303</color>
     <color name="shadow_start">#EEEEEE</color>
+    <color name="backblue" >#115C93E5</color>
 
 </resources>

@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
 import com.twins.osama.finalproject.Adapters.TabsPagerAdapter;
+import com.twins.osama.finalproject.Fragments.FragmentDeadLine;
+import com.twins.osama.finalproject.Fragments.LabsFragment;
 import com.twins.osama.finalproject.Fragments.PersonalDataFragment;
 import com.twins.osama.finalproject.R;
 
@@ -33,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
     private void setupViewPager(ViewPager viewPager) {
         TabsPagerAdapter adapter = new TabsPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new PersonalDataFragment(), getResources().getString(R.string.Personal_data));
+        adapter.addFragment(new FragmentDeadLine(), getResources().getString(R.string.Deadlines));
+        adapter.addFragment(new LabsFragment(), getResources().getString(R.string.Labs));
         viewPager.setAdapter(adapter);
     }
 }

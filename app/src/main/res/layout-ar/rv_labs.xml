@@ -71,10 +71,5 @@
             android:text="2222222"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="@dimen/textSize" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-    </LinearLayout>
+</LinearLayout>
 </android.support.v7.widget.CardView>

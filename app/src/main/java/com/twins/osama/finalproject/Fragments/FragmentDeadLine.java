@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.twins.osama.finalproject.Activities.MainActivity;
 import com.twins.osama.finalproject.Adapters.DeadLineAdapter;
 import com.twins.osama.finalproject.Classes.RVDeadline;
 import com.twins.osama.finalproject.R;
@@ -32,7 +31,7 @@ public class FragmentDeadLine extends Fragment {
         View view = inflater.inflate(R.layout.fragment_dead_line, container, false);
         data = fill_with_data();
         RecyclerView recyclerView = (RecyclerView)view.findViewById(R.id.rv_deadline);
-        DeadLineAdapter rvadapter = new DeadLineAdapter((MainActivity)getActivity(), data);
+        DeadLineAdapter rvadapter = new DeadLineAdapter(getActivity(), data);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(rvadapter);
 

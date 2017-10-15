@@ -7,7 +7,6 @@ package com.twins.osama.finalproject.Classes;
 public class RvLabs {
     public String nameLabe;
     public String DateLab;
-
     public String resultLab;
 
     public RvLabs(String nameLabe, String dateLab, String resultLab) {

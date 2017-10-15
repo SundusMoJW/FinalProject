@@ -2,7 +2,7 @@ package com.twins.osama.finalproject.Adapters;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,11 +20,11 @@ import java.util.ArrayList;
 
 public class DeadLineAdapter extends RecyclerView.Adapter<DeadLineAdapter.ViewHolder>{
     ArrayList<RVDeadline> item = new ArrayList<>();
-    AppCompatActivity context;
+    Context context;
     private FragmentManager mFragmentManager;
     private FragmentTransaction mFragmentTransaction;
 
-    public DeadLineAdapter(AppCompatActivity context, ArrayList item) {
+    public DeadLineAdapter(Context context, ArrayList item) {
         this.context = context;
         this.item = item;
     }

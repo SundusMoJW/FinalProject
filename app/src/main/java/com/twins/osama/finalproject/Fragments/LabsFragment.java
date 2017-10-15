@@ -8,9 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.twins.osama.finalproject.Activities.MainActivity;
 import com.twins.osama.finalproject.Adapters.LabAdapter;
-import com.twins.osama.finalproject.Class.RvLabs;
+import com.twins.osama.finalproject.Classes.RvLabs;
 import com.twins.osama.finalproject.R;
 
 import java.util.ArrayList;
@@ -31,7 +30,7 @@ public class LabsFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_labs, container, false);
         data = fill_with_data();
         RecyclerView recyclerView = (RecyclerView)view.findViewById(R.id.rv_labss);
-       LabAdapter rvadapter = new LabAdapter((MainActivity)getActivity(), data);
+       LabAdapter rvadapter = new LabAdapter(getActivity(), data);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(rvadapter);
 

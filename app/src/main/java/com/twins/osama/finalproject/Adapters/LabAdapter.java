@@ -1,8 +1,8 @@
 package com.twins.osama.finalproject.Adapters;
 
 import android.app.FragmentManager;
+import android.content.Context;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,18 +21,16 @@ import java.util.ArrayList;
 public class LabAdapter extends RecyclerView.Adapter<LabAdapter.ViewHolder>  {
 
     ArrayList<RvLabs> item = new ArrayList<>();
-    AppCompatActivity context;
     private FragmentManager mFragmentManager;
     private FragmentTransaction mFragmentTransaction;
-
-    public LabAdapter(AppCompatActivity context, ArrayList item) {
+    Context context;
+    public LabAdapter( Context context, ArrayList item) {
         this.context = context;
         this.item = item;
     }
     @Override
     public LabAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.rv_deadline, parent, false);
-//      TypefaceUtil.applyFont(context, view.findViewById(R.id.cardView));
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.rv_labs, parent, false);
         return new ViewHolder(view);
     }
 
