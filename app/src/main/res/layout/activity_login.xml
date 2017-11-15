@@ -5,11 +5,11 @@
     android:layout_height="match_parent"
     android:layoutDirection="ltr"
     android:textDirection="ltr"
+    android:id="@+id/layout"
     android:background="@color/white"
     tools:context="com.twins.osama.finalproject.Activities.Login">
 
     <LinearLayout
-        android:id="@+id/layout"
         android:layout_width="fill_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/logo"

@@ -5,7 +5,9 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 
+import com.google.firebase.database.FirebaseDatabase;
 import com.twins.osama.finalproject.Adapters.TabsPagerAdapter;
 import com.twins.osama.finalproject.Fragments.FragmentDeadLine;
 import com.twins.osama.finalproject.Fragments.LabsFragment;
@@ -17,11 +19,14 @@ public class MainActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private ViewPager viewPager;
     private TabLayout tabLayout;
+    private FirebaseDatabase database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        database = FirebaseDatabase.getInstance();
+        Log.d("$$$", database.getReference().child("AddPatient").getKey());
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         viewPager = (ViewPager) findViewById(R.id.viewpager);
@@ -39,4 +44,5 @@ public class MainActivity extends AppCompatActivity {
         adapter.addFragment(new LabsFragment(), getResources().getString(R.string.Labs));
         viewPager.setAdapter(adapter);
     }
+
 }

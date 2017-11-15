@@ -32,5 +32,6 @@
     <string name="rris_family_id">رقم العائلة:</string>
     <string name="team">الفريق:</string>
     <string name="blood_type">فصيلة الدم:</string>
+    <string name="invalid_login">Invalid RCN or Password</string>
 
 </resources>

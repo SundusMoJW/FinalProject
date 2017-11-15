@@ -1,7 +1,10 @@
 package com.twins.osama.finalproject.Activities;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -32,13 +35,15 @@ import static com.twins.osama.finalproject.Helpar.Const.USER_SSN_LOGIN;
 
 public class Login extends AppCompatActivity {
     private Realm realm;
-    EditText LoginPassword;
-    EditText LoginUser;
+    private EditText LoginPassword;
+    private EditText LoginUser;
     private Button login;
-    FirebaseDatabase database;
-    SharedPrefUtil sharedPrefUtil;
-    String uRRIS_SSN_NO;
+    private FirebaseDatabase database;
+    private SharedPrefUtil sharedPrefUtil;
+    private String uRRIS_SSN_NO;
     private ArrayList<PersonalData> personalDatas = new ArrayList<>();
+    private View view;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,11 +53,13 @@ public class Login extends AppCompatActivity {
         login = (Button) findViewById(R.id.login);
         sharedPrefUtil = new SharedPrefUtil(Login.this);
         database = FirebaseDatabase.getInstance();
+        view= findViewById(R.id.layout);
 
         Realm.init(getApplication());
         realm = Realm.getDefaultInstance();
 
         login.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.GINGERBREAD)
             @Override
             public void onClick(View v) {
                 if(!(LoginUser.getText().toString().isEmpty())&&!(LoginPassword.getText().toString().isEmpty())) {
@@ -67,8 +74,6 @@ public class Login extends AppCompatActivity {
 
                             if (dataSnapshot.exists()) {
                                 for (DataSnapshot data : dataSnapshot.getChildren()) {
-
-
 //                                        JSONObject   dt = new JSONObject((Map) dataSnapshot.child(dataSnapshot.getKey()).getValue());
                                     JSONObject dt = new JSONObject((Map) data.getValue());
 //                                    try {
@@ -82,10 +87,7 @@ public class Login extends AppCompatActivity {
                                     uRRIS_SSN_NO = dt.optString("RRIS_SSN_NO");
 
                                     Log.i("aaaa", "//" + dt.optString("RCN"));
-
-
-//                        String title = dt.optString("title"
-//);
+//                        String title = dt.optString("title"//);
 //                                    private String RCN_NO;
 //                                    private String RrisFamilyId;
 //                                    private String Team;
@@ -124,11 +126,14 @@ public class Login extends AppCompatActivity {
                                         }
                                         startActivity(new Intent(Login.this, MainActivity.class));
                                         finish();
-                                    } else
-                                        Toast.makeText(Login.this, "Invalid RCN or Password", Toast.LENGTH_SHORT).show();
+                                    } else {
+                                         Snackbar.make(view, getString(R.string.invalid_login), Snackbar.LENGTH_SHORT).show();
+                                    }
+//                                        Toast.makeText(Login.this, "Invalid RCN or Password", Toast.LENGTH_SHORT).show();
                                 }
                             } else
-                                Toast.makeText(Login.this, "This account not found", Toast.LENGTH_SHORT).show();
+                                Snackbar.make(view, getString(R.string.acc_not_found), Snackbar.LENGTH_SHORT).show();
+//                                Toast.makeText(Login.this, "This account not found", Toast.LENGTH_SHORT).show();
                         }
 
 //                    }

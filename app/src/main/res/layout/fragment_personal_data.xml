@@ -1,149 +1,158 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layoutDirection="ltr"
-    android:textDirection="ltr"
-    android:scrollbars="none"
+    android:orientation="vertical"
     tools:context="com.twins.osama.finalproject.Fragments.PersonalDataFragment">
 
-    <LinearLayout
+        <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
+        <!--xmlns:tools="http://schemas.android.com/tools"-->
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layoutDirection="ltr"
+        android:scrollbars="none"
+        android:textDirection="ltr">
+        <!--tools:context="com.twins.osama.finalproject.Fragments.PersonalDataFragment">-->
 
-        <RelativeLayout
-            android:id="@+id/hedar"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/shadow_start"
-            android:padding="20dp">
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/hedar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/shadow_start"
+                android:padding="20dp">
+
+                <TextView
+                    android:id="@+id/peronal_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="Sundus Ab Jw"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/titel" />
+
+                <View
+                    android:id="@+id/view_personl"
+                    android:layout_width="150dp"
+                    android:layout_height="2dp"
+                    android:layout_below="@id/peronal_name"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/colorAccent" />
+
+                <TextView
+                    android:id="@+id/tvaddress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/view_personl"
+                    android:text="My Address"
+                    android:textSize="@dimen/textSize" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/circleView"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/blank_profile_picture" />
+
+                <TextView
+                    android:id="@+id/pluse"
+                    android:layout_width="@dimen/ic_size"
+                    android:layout_height="@dimen/ic_size"
+                    android:layout_alignBottom="@id/circleView"
+                    android:layout_alignLeft="@id/circleView"
+                    android:layout_marginLeft="35dp"
+                    android:background="@drawable/circle_shape_white"
+                    android:gravity="center"
+                    android:text="+"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/titel" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="@color/colorPrimaryDark"
+                android:elevation="@dimen/padding_icon" />
 
             <TextView
-                android:id="@+id/peronal_name"
-                android:layout_width="wrap_content"
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="Sundus Ab Jw"
+                android:layout_margin="20dp"
+                android:text="@string/rcn_no"
                 android:textColor="@color/black"
                 android:textSize="@dimen/titel" />
 
-            <View
-                android:id="@+id/view_personl"
-                android:layout_width="150dp"
-                android:layout_height="2dp"
-                android:layout_below="@id/peronal_name"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="10dp"
-                android:background="@color/colorAccent" />
-
             <TextView
-                android:id="@+id/tvaddress"
-                android:layout_width="wrap_content"
+                android:id="@+id/rcn_user"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/view_personl"
-                android:text="My Address"
+                android:layout_marginLeft="20dp"
+                android:text="2222222"
+                android:textColor="@color/colorPrimaryDark"
                 android:textSize="@dimen/textSize" />
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/circleView"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_alignParentRight="true"
-                android:src="@drawable/blank_profile_picture" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:text="@string/rris_family_id"
+                android:textColor="@color/black"
+                android:textSize="@dimen/titel" />
 
             <TextView
-                android:id="@+id/pluse"
-                android:layout_width="@dimen/ic_size"
-                android:layout_height="@dimen/ic_size"
-                android:layout_alignBottom="@id/circleView"
-                android:layout_alignLeft="@id/circleView"
-                android:layout_marginLeft="35dp"
-                android:background="@drawable/circle_shape_white"
-                android:gravity="center"
-                android:text="+"
+                android:id="@+id/rrsn_id_user"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="2222222"
                 android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/textSize" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:text="@string/team"
+                android:textColor="@color/black"
                 android:textSize="@dimen/titel" />
-        </RelativeLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="3dp"
-            android:background="@color/colorPrimaryDark"
-            android:elevation="@dimen/padding_icon" />
+            <TextView
+                android:id="@+id/team_user"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="2222222"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/textSize" />
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:text="@string/rcn_no"
-            android:textColor="@color/black"
-            android:textSize="@dimen/titel" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:text="@string/blood_type"
+                android:textColor="@color/black"
+                android:textSize="@dimen/titel" />
 
-        <TextView
-            android:id="@+id/rcn_user"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:text="2222222"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="@dimen/textSize" />
+            <TextView
+                android:id="@+id/blood_type_user"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="2222222"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/textSize" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:text="@string/rris_family_id"
-            android:textColor="@color/black"
-            android:textSize="@dimen/titel" />
-
-        <TextView
-            android:id="@+id/rrsn_id_user"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:text="2222222"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="@dimen/textSize" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:text="@string/team"
-            android:textColor="@color/black"
-            android:textSize="@dimen/titel" />
-
-        <TextView
-            android:id="@+id/team_user"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:text="2222222"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="@dimen/textSize" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:text="@string/blood_type"
-            android:textColor="@color/black"
-            android:textSize="@dimen/titel" />
-
-        <TextView
-            android:id="@+id/blood_type_user"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:text="2222222"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="@dimen/textSize" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="100dp" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dp" />
+        </LinearLayout>
+    </ScrollView>
     </LinearLayout>
-</ScrollView>
