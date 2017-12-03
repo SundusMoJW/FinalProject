@@ -31,7 +31,6 @@ import io.realm.RealmResults;
 
 import static com.twins.osama.finalproject.Helpar.Const.STATUS_SHARED_PREF;
 import static com.twins.osama.finalproject.Helpar.Const.USER_RCN_LOGIN;
-import static com.twins.osama.finalproject.Helpar.Const.USER_SSN_LOGIN;
 
 public class Login extends AppCompatActivity {
     private Realm realm;
@@ -112,8 +111,7 @@ public class Login extends AppCompatActivity {
                                         String Address = dt.optString("Address");
                                         String Key = dt.optString("PatientId");
                                         sharedPrefUtil.saveBoolean(STATUS_SHARED_PREF, true);
-                                        sharedPrefUtil.saveString(USER_RCN_LOGIN, LoginUser.getText().toString().trim());
-                                        sharedPrefUtil.saveString(USER_SSN_LOGIN, LoginPassword.getText().toString().trim());
+                                        sharedPrefUtil.saveString(USER_RCN_LOGIN, uRCN);
 
                                         PersonalData pData=new PersonalData(uRCN,uRRIS_SSN_NO,RrisFamilyId,Team,BloodType,Name,Address,Key);
                                         personalDatas.add(pData);

@@ -40,8 +40,7 @@ public class PersonalData extends RealmObject {
 
     public String getRCN_NO() {
         return RCN_NO;
-
-    }
+  }
 
     public void setRCN_NO(String RCN_NO) {
         this.RCN_NO = RCN_NO;
