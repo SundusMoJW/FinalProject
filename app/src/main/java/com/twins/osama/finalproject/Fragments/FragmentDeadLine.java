@@ -65,7 +65,6 @@ public class FragmentDeadLine extends Fragment {
         recyclerView.setAdapter(rvadapter);
         Log.i("userRcnLogin", userRcnLogin);
         final Query patient = database.getReference().child("BooKApp").child(userRcnLogin);
-//        final Query patient = database.getReference().child("BooKApp").child("12");
         patient.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -76,34 +75,12 @@ public class FragmentDeadLine extends Fragment {
                 Log.i("jsonObject  ", jsonObject.toString());
 
                 if (dataSnapshot.exists()) {
-                    int i = 0;
-
                     for (DataSnapshot data : dataSnapshot.getChildren()) {
-//                        try {
-//                            JSONObject dt = new JSONObject(data.getKey());
-//                            Log.i("JSONObject  " + i, dt.toString());
-                        Log.i("getKey  " + i, data.getKey());
 
-//                            JSONObject dt1 = dt.getJSONObject(data.getKey());
-//                            Log.i("getKeyDate  "+i, dt1.toString());
-
-//                            Log.i("getKeyDate  "+i, dt1.optString("date"));
-//                        } catch (JSONException e) {
-//                            Log.i("JSONException  " + i, e + "");
-//                        }
-                        i++;
-
+                        Log.i("getKey  ", data.getKey());
                         JSONObject dt = new JSONObject((Map) data.getValue());
-//                        try {
-//                            dt = new JSONObject( (Map) data.getValue());
-//                            dt.
-//                            JSONObject dt1 = new JSONObject();
-//
-//                        } catch (JSONException e) {
-//                            e.printStackTrace();
-//                        }
                         String ApId = dt.optString("ApId");
-                        Log.i("ApId  " + i, ApId);
+                        Log.i("ApId  " , ApId);
 
                         realm.beginTransaction();
                         RealmResults<RVDeadline> result = realm.where(RVDeadline.class).findAll();
@@ -111,14 +88,13 @@ public class FragmentDeadLine extends Fragment {
                             result.deleteAllFromRealm();
                             realm.commitTransaction();
                         } else realm.cancelTransaction();
-//
+
                         String Resone = dt.optString("note");
                         String Date = dt.optString("date");
                         String houer = dt.optString("clock");
-                        Log.i("Resone  " + i, Resone);
-                        Log.i("Date  " + i, Date);
-                        Log.i("houer  " + i, houer);
-
+                        Log.i("Resone  ", Resone);
+                        Log.i("Date  ", Date);
+                        Log.i("houer  ", houer);
 
                         RVDeadline pData = new RVDeadline(Resone, Date, houer);
                         rvDeadlines.add(pData);
@@ -140,22 +116,6 @@ public class FragmentDeadLine extends Fragment {
 
             }
         });
-//        Log.d("///patient","****"+patient.toString());
-//        DeadLineAdapter rvadapter = new DeadLineAdapter(getActivity(), rvDeadlines);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-//        recyclerView.setAdapter(rvadapter);
-
         return view;
-    }
-
-    public ArrayList<RVDeadline> fill_with_data() {
-
-        ArrayList<RVDeadline> data = new ArrayList<>();
-
-        data.add(new RVDeadline("222", "56468", "446"));
-        data.add(new RVDeadline("222", "56468", "446"));
-        data.add(new RVDeadline("222", "56468", "446"));
-        data.add(new RVDeadline("222", "56468", "446"));
-        return data;
     }
 }

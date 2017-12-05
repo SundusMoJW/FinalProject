@@ -12,20 +12,101 @@
     android:textDirection="ltr"
     app:cardElevation="2dp">
 
-    <TextView
-        android:id="@+id/name"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:text="@string/NameLab"
-        android:textColor="@color/black"
-        android:textSize="@dimen/titel" />
-
-    <LinearLayout
-        android:id="@+id/addView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#ffffff"
         android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/time_spend"
+            android:textColor="@color/black"
+            android:textSize="@dimen/titel" />
+
+        <TextView
+            android:id="@+id/timeSpent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:layout_marginStart="10dp"
+            android:text="@string/time_spend"
+            android:textColor="@color/black"
+            android:textSize="@dimen/textSize" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorAccent" />
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/parentPanell"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:orientation="horizontal">
+            <!--<ImageView-->
+            <!--android:layout_width="40dp"-->
+            <!--android:layout_height="40dp"-->
+            <!--android:src="@drawable/ic_circle"/>-->
+            <TextView
+                android:id="@+id/drug"
+                android:layout_width="80dp"
+                android:layout_margin="10dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:gravity="center|center_vertical"
+                android:text="Drug"
+                android:layout_centerInParent="true"
+                android:textColor="@color/darkRed"
+                android:textSize="@dimen/titel" />
+
+            <TextView
+                android:id="@+id/Qty"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:gravity="center|center_vertical"
+                android:layout_margin="10dp"
+                android:layout_toStartOf="@id/time"
+                android:text="Qty"
+                android:layout_centerInParent="true"
+                android:textColor="@color/darkRed"
+                android:textSize="@dimen/titel" />
+
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_margin="10dp"
+                android:layout_toStartOf="@id/week"
+                android:text="Time"
+                android:gravity="center|center_vertical"
+                android:textColor="@color/darkRed"
+                android:textSize="@dimen/titel" />
+
+            <TextView
+                android:id="@+id/week"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerInParent="true"
+                android:layout_margin="10dp"
+                android:gravity="center|center_vertical"
+                android:text="Week"
+                android:textColor="@color/darkRed"
+                android:textSize="@dimen/titel" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorAccent" />
+
+        <LinearLayout
+            android:id="@+id/addView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:orientation="vertical"/>
     </LinearLayout>
 </android.support.v7.widget.CardView>

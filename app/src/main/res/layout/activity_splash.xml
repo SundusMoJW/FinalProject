@@ -3,18 +3,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_centerHorizontal="true"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/back3"
     android:layoutDirection="ltr"
+android:gravity="center"
     android:textDirection="ltr"
-    android:background="@drawable/back_splah"
     tools:context="com.twins.osama.finalproject.Activities.Splash">
-   <TextView
-        android:layout_width="wrap_content"
+    <!--<TextView-->
+        <!--android:id="@+id/img2"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_above="@id/tv"-->
+        <!--android:background="@color/black_overlay" />-->
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/ic_like" />
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:layout_below="@id/img"
+        android:layout_marginTop="100dp"
+        android:text="Chronic Disease"
+        android:textColor="@color/black"
+        android:textSize="30dp" />
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="140dp"
+        android:layout_marginBottom="20dp"
         android:gravity="center"
         android:text="NCD Patient"
         android:textColor="@color/black"
-        android:textSize="30dp" />
+        android:textSize="20dp" />
 </RelativeLayout>

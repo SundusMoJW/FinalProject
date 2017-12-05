@@ -24,6 +24,7 @@
     <string name="NameLab">Name Lab :</string>
     <string name="Date">Date Lab :</string>
     <string name="Rersult">Result :</string>
+    <string name="Pharm">Pharm</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -35,5 +36,6 @@
     <string name="blood_type">Blood Type:</string>
     <string name="invalid_login">Invalid RCN or Password</string>
     <string name="acc_not_found">This account not found</string>
+    <string name="time_spend">Time Spend:</string>
 
 </resources>

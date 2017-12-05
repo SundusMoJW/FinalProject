@@ -33,5 +33,7 @@
     <string name="team">الفريق:</string>
     <string name="blood_type">فصيلة الدم:</string>
     <string name="invalid_login">Invalid RCN or Password</string>
+    <string name="Pharm">يدلية</string>
+    <string name="time_spend">وقت الصرف:</string>
 
 </resources>

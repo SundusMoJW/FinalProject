@@ -7,10 +7,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.twins.osama.finalproject.Classes.Pharm;
+import com.twins.osama.finalproject.Classes.ToAccessPharmAdapter;
 import com.twins.osama.finalproject.R;
 
 import java.util.ArrayList;
@@ -21,14 +22,16 @@ import java.util.List;
  */
 
 public class PharmAdapter extends RecyclerView.Adapter<PharmAdapter.ViewHolder> {
-    List<Pharm> item = new ArrayList<>();
+    private List<ToAccessPharmAdapter> item = new ArrayList<>();
+//    private String timeSpent;
     private FragmentManager mFragmentManager;
     private FragmentTransaction mFragmentTransaction;
     Activity activity;
 
-    public PharmAdapter(Activity activity, List item) {
+    public PharmAdapter(Activity activity, List<ToAccessPharmAdapter> item) {
         this.activity = activity;
         this.item = item;
+//        this.timeSpent = timeSpent;
     }
 
     @Override
@@ -40,22 +43,24 @@ public class PharmAdapter extends RecyclerView.Adapter<PharmAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(PharmAdapter.ViewHolder holder, int position) {
-        holder.name.setText(item.get(position).getMonth());
-        List<String> drug = item.get(position).getDrug();
-        for (String str : drug) {
-            if (!(str.equals("false"))) {
-                holder.addView.addView(getItem(str));
-            }
+        holder.timeSpent.setText(item.get(position).getKey());
+        for (Pharm pharm : item.get(position).getPharms()) {
+            holder.addView.addView(getItem(pharm));
         }
-
-//        holder.addView;
-
     }
 
-    public ViewGroup getItem(String str) {
-        final LinearLayout ll = (LinearLayout) activity.getLayoutInflater().inflate(R.layout.add_many_text, null);
-        TextView txt = (TextView) ll.findViewById(R.id.txt);
-        txt.setText(str);
+    public ViewGroup getItem(Pharm pharm) {
+        final RelativeLayout ll = (RelativeLayout) activity.getLayoutInflater().inflate(R.layout.add_many_text, null);
+        TextView drug = (TextView) ll.findViewById(R.id.drug);
+        TextView Qty = (TextView) ll.findViewById(R.id.Qty);
+        TextView time = (TextView) ll.findViewById(R.id.time);
+        TextView week = (TextView) ll.findViewById(R.id.week);
+
+        drug.setText(pharm.getDrug());
+        Qty.setText(pharm.getQty());
+        time.setText(pharm.getTime());
+        week.setText(pharm.getWeek());
+
         return ll;
     }
 
@@ -63,10 +68,6 @@ public class PharmAdapter extends RecyclerView.Adapter<PharmAdapter.ViewHolder> 
         return item.size();
     }
 
-    public void addItem(Pharm pharm) {
-        item.add(pharm);
-        notifyItemInserted(item.size());
-    }
 
     public void removeItem(int position) {
         item.remove(position);
@@ -81,7 +82,7 @@ public class PharmAdapter extends RecyclerView.Adapter<PharmAdapter.ViewHolder> 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView name;
+        TextView timeSpent;
         ViewGroup addView;
 
         // CardView cv;
@@ -89,7 +90,7 @@ public class PharmAdapter extends RecyclerView.Adapter<PharmAdapter.ViewHolder> 
             super(view);
             //cv = (CardView) itemView.findViewById(R.id.cardView);
 
-            name = view.findViewById(R.id.name);
+            timeSpent = view.findViewById(R.id.timeSpent);
             addView = view.findViewById(R.id.addView);
 
         }

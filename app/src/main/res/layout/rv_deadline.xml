@@ -18,12 +18,15 @@
         android:background="#ffffff"
         android:orientation="vertical">
 
-
         <TextView
             android:id="@+id/ResonVisite"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="5dp"
+            android:drawablePadding="10dp"
+            android:drawableStart="@drawable/checklist"
             android:text="@string/ResoneVisit"
             android:textColor="@color/black"
             android:textSize="@dimen/titel" />
@@ -32,8 +35,7 @@
             android:id="@+id/tvResonVisite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="60dp"
             android:text=" ResonVisite"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="@dimen/textSize" />
@@ -41,17 +43,21 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="5dp"
             android:text="@string/DeadLine"
+            android:gravity="center_vertical"
+            android:drawableStart="@drawable/ic_agenda"
+            android:drawablePadding="10dp"
             android:textColor="@color/black"
             android:textSize="@dimen/titel" />
 
         <TextView
             android:id="@+id/tvDeadLine"
-
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="60dp"
             android:text="2222222"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="@dimen/textSize" />
@@ -59,8 +65,12 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="5dp"
             android:text="@string/hour"
+            android:drawableStart="@drawable/ic_clock"
+            android:drawablePadding="10dp"
             android:textColor="@color/black"
             android:textSize="@dimen/titel" />
 
@@ -68,8 +78,9 @@
             android:id="@+id/tvhour"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="60dp"
             android:text="2222222"
+            android:layout_marginBottom="20dp"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="@dimen/textSize" />
 </LinearLayout>

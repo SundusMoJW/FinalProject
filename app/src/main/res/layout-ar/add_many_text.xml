@@ -4,27 +4,24 @@
     android:id="@+id/parentPanell"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
-    <!--<ImageView-->
-        <!--android:layout_width="40dp"-->
-        <!--android:layout_height="40dp"-->
-        <!--android:src="@drawable/ic_circle"/>-->
+
     <TextView
         android:id="@+id/drug"
         android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:gravity="center|center_vertical"
-        android:text="drug"
+        android:text="الأدوية"
         android:layout_centerInParent="true"
         android:layout_alignParentStart="true"
-        android:drawableLeft="@drawable/ic_circle"
+        android:drawableStart="@drawable/ic_circle"
         android:textColor="@color/black"
         android:textSize="@dimen/textSize" />
     <TextView
         android:id="@+id/Qty"
         android:layout_width="40dp"
         android:layout_height="wrap_content"
-        android:text="Qty"
+        android:text="الكمية"
         android:layout_centerInParent="true"
         android:layout_margin="10dp"
         android:layout_toStartOf="@id/time"
@@ -36,7 +33,7 @@
         android:layout_width="40dp"
         android:layout_height="wrap_content"
         android:gravity="center|center_vertical"
-        android:text="Time"
+        android:text="المرات"
         android:layout_centerInParent="true"
         android:layout_margin="10dp"
         android:layout_toStartOf="@id/week"
@@ -47,7 +44,7 @@
         android:layout_width="60dp"
         android:layout_height="wrap_content"
         android:gravity="center|center_vertical"
-        android:text="Week"
+        android:text="الأسبوع"
         android:layout_centerInParent="true"
         android:layout_margin="10dp"
         android:layout_alignParentEnd="true"

@@ -2,6 +2,7 @@ package com.twins.osama.finalproject.Fragments;
 
 
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -9,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -16,48 +18,111 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.twins.osama.finalproject.Adapters.PharmAdapter;
-import com.twins.osama.finalproject.Classes.RvLabs;
+import com.twins.osama.finalproject.Classes.Pharm;
+import com.twins.osama.finalproject.Classes.ToAccessPharmAdapter;
+import com.twins.osama.finalproject.Helpar.SharedPrefUtil;
+import com.twins.osama.finalproject.Helpar.Util;
 import com.twins.osama.finalproject.R;
 
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
+
+import io.realm.Realm;
+
+import static com.twins.osama.finalproject.Helpar.Const.USER_RCN_LOGIN;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class PharmFragment extends Fragment {
-    ArrayList<RvLabs> data;
+    private List<ToAccessPharmAdapter> arrToAccessPharmAdapters = new ArrayList<>();
+    private PharmAdapter rvadapter;
+    private List<Pharm> arrPharms = new ArrayList<>();
+    private String timeSpend;
     private FirebaseDatabase database;
+    private LinearLayout cuView;
+    private SharedPrefUtil sharedPrefUtil;
+    private String userRcnLogin;
+    private Realm realm;
+    private String newtimeSpend;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_pharm, container, false);
+        Realm.init(getActivity());
+        realm = Realm.getDefaultInstance();
+        final View view = inflater.inflate(R.layout.fragment_pharm, container, false);
         database = FirebaseDatabase.getInstance();
-
+        cuView = view.findViewById(R.id.linearLayout);
+        sharedPrefUtil = new SharedPrefUtil(getActivity());
+        userRcnLogin = sharedPrefUtil.getString(USER_RCN_LOGIN);
 //        data = fill_with_data();
-        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.rv_pharm);
+        final RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.rv_pharm);
         /*********/
-        PharmAdapter rvadapter = new PharmAdapter(getActivity(), data);
+         rvadapter = new PharmAdapter(getActivity(), arrToAccessPharmAdapters);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(rvadapter);
-        final Query patient = database.getReference().child("BooKApp").child("12");
+        final Query patient = database.getReference().child("AddPharmacy").child(userRcnLogin);
         patient.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                Map<String, String> map = (Map<String, String>) dataSnapshot.getValue();
-                Log.i("aaaa", "//" + map.toString());
-                String uRCN = map.get("RCN");
-                map.get("");
+//                Log.i("Pharmacy", dataSnapshot.getValue().toString());
+//                Log.i("getKeyPharmacy", dataSnapshot.getKey());
+//                Log.i("getRef", dataSnapshot.getRef().toString());
+                JSONObject jsonObject = new JSONObject((Map) dataSnapshot.getValue());
+//                Log.i("jsonObject  ", jsonObject.toString());
+                if (dataSnapshot.exists()) {
+//                    arrToAccessPharmAdapters=new ArrayList<>();
+                    arrToAccessPharmAdapters.clear();
+                    for (DataSnapshot data : dataSnapshot.getChildren()) {
+                        Log.e("data  ", data.getValue().toString());
+                        timeSpend = data.getKey() + "";
+                        Long date=Long.parseLong(timeSpend);
+                        newtimeSpend= Util.getDate(date);
+                        arrPharms=new ArrayList<>();
+                        arrPharms.clear();
+//                        Log.i("timeSpend  ", timeSpend);
+//                        Log.i("AllData  ", data.toString());
+//                        Log.i("dataPharmTimeSpend  ", data.getChildren() + "");
+                        for (DataSnapshot dataPharm : data.getChildren()) {
+                            Log.e("dataPharm  ", dataPharm.getValue().toString());
+                            JSONObject dt = new JSONObject((Map) dataPharm.getValue());
+                            Pharm pharm = new Pharm(dt.optString("Qty"), dt.optString("Drug"),
+                                    dt.optString("RCN"), dt.optString("time"), dt.optString("week"),
+                                    dt.optString("key"));
+                            arrPharms.add(pharm);
+//                            Log.i("dataPharm  ", dataPharm + "");
+//                            realm.beginTransaction();
+//                            realm.createOrUpdateAllFromJson(Pharm.class, dt.toString());
+//                            realm.commitTransaction();
+                        }
+                        ToAccessPharmAdapter toAccessPharmAdapter=new ToAccessPharmAdapter(newtimeSpend,arrPharms);
+                        arrToAccessPharmAdapters.add(toAccessPharmAdapter);
+                    }
+                    rvadapter = new PharmAdapter(getActivity(), arrToAccessPharmAdapters);
+                    recyclerView.setAdapter(rvadapter);
+                    rvadapter.notifyDataSetChanged();
+                } else {
+                    if (getView() != null)
+                        Snackbar.make(cuView, getString(R.string.acc_not_found), Snackbar.LENGTH_SHORT).show();
+                }
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
             }
         });
         return view;
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        rvadapter.notifyDataSetChanged();
 
     }
 }
