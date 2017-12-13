@@ -22,6 +22,7 @@ import com.twins.osama.finalproject.Classes.Pharm;
 import com.twins.osama.finalproject.Classes.ToAccessPharmAdapter;
 import com.twins.osama.finalproject.Helpar.SharedPrefUtil;
 import com.twins.osama.finalproject.Helpar.Util;
+import com.twins.osama.finalproject.MyRelam.RealmController;
 import com.twins.osama.finalproject.R;
 
 import org.json.JSONObject;
@@ -31,6 +32,7 @@ import java.util.List;
 import java.util.Map;
 
 import io.realm.Realm;
+import io.realm.RealmList;
 
 import static com.twins.osama.finalproject.Helpar.Const.USER_RCN_LOGIN;
 
@@ -40,7 +42,7 @@ import static com.twins.osama.finalproject.Helpar.Const.USER_RCN_LOGIN;
 public class PharmFragment extends Fragment {
     private List<ToAccessPharmAdapter> arrToAccessPharmAdapters = new ArrayList<>();
     private PharmAdapter rvadapter;
-    private List<Pharm> arrPharms = new ArrayList<>();
+    private RealmList<Pharm> arrPharms = new RealmList<>();
     private String timeSpend;
     private FirebaseDatabase database;
     private LinearLayout cuView;
@@ -63,67 +65,85 @@ public class PharmFragment extends Fragment {
 //        data = fill_with_data();
         final RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.rv_pharm);
         /*********/
-         rvadapter = new PharmAdapter(getActivity(), arrToAccessPharmAdapters);
+        rvadapter = new PharmAdapter(getActivity(), arrToAccessPharmAdapters);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(rvadapter);
-        final Query patient = database.getReference().child("AddPharmacy").child(userRcnLogin);
-        patient.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
+        if (Util.hasActiveInternetConnection(getActivity())) {
+            final Query patient = database.getReference().child("AddPharmacy").child(userRcnLogin);
+            if (patient != null) {
+                patient.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
 //                Log.i("Pharmacy", dataSnapshot.getValue().toString());
 //                Log.i("getKeyPharmacy", dataSnapshot.getKey());
 //                Log.i("getRef", dataSnapshot.getRef().toString());
-                JSONObject jsonObject = new JSONObject((Map) dataSnapshot.getValue());
+                        JSONObject jsonObject = new JSONObject((Map) dataSnapshot.getValue());
 //                Log.i("jsonObject  ", jsonObject.toString());
-                if (dataSnapshot.exists()) {
+                        if (dataSnapshot.exists()) {
 //                    arrToAccessPharmAdapters=new ArrayList<>();
-                    arrToAccessPharmAdapters.clear();
-                    for (DataSnapshot data : dataSnapshot.getChildren()) {
-                        Log.e("data  ", data.getValue().toString());
-                        timeSpend = data.getKey() + "";
-                        Long date=Long.parseLong(timeSpend);
-                        newtimeSpend= Util.getDate(date);
-                        arrPharms=new ArrayList<>();
-                        arrPharms.clear();
+                            arrToAccessPharmAdapters.clear();
+                            for (DataSnapshot data : dataSnapshot.getChildren()) {
+                                Log.e("data  ", data.getValue().toString());
+                                timeSpend = data.getKey() + "";
+                                Long date = Long.parseLong(timeSpend);
+                                newtimeSpend = Util.getDate(date);
+                                arrPharms = new RealmList<>();
+                                arrPharms.clear();
 //                        Log.i("timeSpend  ", timeSpend);
 //                        Log.i("AllData  ", data.toString());
 //                        Log.i("dataPharmTimeSpend  ", data.getChildren() + "");
-                        for (DataSnapshot dataPharm : data.getChildren()) {
-                            Log.e("dataPharm  ", dataPharm.getValue().toString());
-                            JSONObject dt = new JSONObject((Map) dataPharm.getValue());
-                            Pharm pharm = new Pharm(dt.optString("Qty"), dt.optString("Drug"),
-                                    dt.optString("RCN"), dt.optString("time"), dt.optString("week"),
-                                    dt.optString("key"));
-                            arrPharms.add(pharm);
+                                for (DataSnapshot dataPharm : data.getChildren()) {
+                                    Log.e("dataPharm  ", dataPharm.getValue().toString());
+                                    JSONObject dt = new JSONObject((Map) dataPharm.getValue());
+                                    if (dt.optBoolean("check")) {
+                                        Pharm pharm = new Pharm(dt.optString("Qty"), dt.optString("Drug"),
+                                                dt.optString("RCN"), dt.optString("time"), dt.optBoolean("check"),
+                                                dt.optString("key"),
+                                                dt.optString("week"));
+                                        arrPharms.add(pharm);
 //                            Log.i("dataPharm  ", dataPharm + "");
 //                            realm.beginTransaction();
 //                            realm.createOrUpdateAllFromJson(Pharm.class, dt.toString());
 //                            realm.commitTransaction();
+                                    }
+                                }
+                                ToAccessPharmAdapter toAccessPharmAdapter = new ToAccessPharmAdapter(newtimeSpend, arrPharms);
+                                arrToAccessPharmAdapters.add(toAccessPharmAdapter);
+                            }
+                            rvadapter = new PharmAdapter(getActivity(), arrToAccessPharmAdapters);
+                            recyclerView.setAdapter(rvadapter);
+                            rvadapter.notifyDataSetChanged();
+                            for (ToAccessPharmAdapter b : arrToAccessPharmAdapters) {
+                                realm.beginTransaction();
+                                realm.copyToRealmOrUpdate(b);
+                                realm.commitTransaction();
+                            }
+                        } else {
+                            if (getView() != null)
+                                Snackbar.make(cuView, getString(R.string.acc_not_found), Snackbar.LENGTH_SHORT).show();
                         }
-                        ToAccessPharmAdapter toAccessPharmAdapter=new ToAccessPharmAdapter(newtimeSpend,arrPharms);
-                        arrToAccessPharmAdapters.add(toAccessPharmAdapter);
                     }
-                    rvadapter = new PharmAdapter(getActivity(), arrToAccessPharmAdapters);
-                    recyclerView.setAdapter(rvadapter);
-                    rvadapter.notifyDataSetChanged();
-                } else {
-                    if (getView() != null)
-                        Snackbar.make(cuView, getString(R.string.acc_not_found), Snackbar.LENGTH_SHORT).show();
-                }
-            }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                    }
+                });
             }
-        });
+        } else {
+
+            arrToAccessPharmAdapters = RealmController.with(getActivity()).getPharmList();
+            if (arrToAccessPharmAdapters != null && arrToAccessPharmAdapters.size() != 0
+                    && !(arrToAccessPharmAdapters.isEmpty()))
+                rvadapter = new PharmAdapter(getActivity(), arrToAccessPharmAdapters);
+            recyclerView.setAdapter(rvadapter);
+            rvadapter.notifyDataSetChanged();
+        }
         return view;
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
-        rvadapter.notifyDataSetChanged();
-
     }
 }
 

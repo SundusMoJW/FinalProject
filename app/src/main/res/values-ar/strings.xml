@@ -4,7 +4,7 @@
     <string name="NCD_Patient_Handbook">كتيب مريض مزمن</string>
     <string name="AddSNN">  أدخل رقم الهوية </string>
     <string name="Login"> تسجيل الدخول  </string>
-    <string name="unrwa">  الأونروا </string>
+    <string name="unrwa">  مرضى السكري والضغط </string>
 
     <string name="Personal_data">البيانات الشخصية</string>
     <string name="Lab_tests">فحوصات المختبر</string>
@@ -35,5 +35,6 @@
     <string name="invalid_login">Invalid RCN or Password</string>
     <string name="Pharm">يدلية</string>
     <string name="time_spend">وقت الصرف:</string>
+    <string name="tips">نصائح</string>
 
 </resources>

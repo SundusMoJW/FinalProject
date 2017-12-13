@@ -4,6 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:focusable="true"
+    android:clickable="true"
     tools:context="com.twins.osama.finalproject.Fragments.PersonalDataFragment">
 
         <!--xmlns:android="http://schemas.android.com/apk/res/android"-->

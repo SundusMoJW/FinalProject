@@ -3,7 +3,7 @@
     <string name="NCD_Patient_Handbook">NCD Patient Handbook</string>
     <string name="AddSNN">  Enter SNN </string>
     <string name="Login"> Login  </string>
-    <string name="unrwa"> UNRWA </string>
+    <string name="unrwa"> Chronic Diseases </string>
     <string name="Personal_data">Personal Data</string>
     <string name="Lab_tests">Lab Tests</string>
     <string name="Deadlines">Deadlines</string>
@@ -25,6 +25,7 @@
     <string name="Date">Date Lab :</string>
     <string name="Rersult">Result :</string>
     <string name="Pharm">Pharm</string>
+    <string name="tips">Tips</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

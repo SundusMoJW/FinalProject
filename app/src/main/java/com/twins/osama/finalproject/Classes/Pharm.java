@@ -11,26 +11,19 @@ public class Pharm  extends RealmObject {
     private String Drug;
     private String RCN;
     private String time;
+    private boolean check;
     private String key;
     private String week;
     public Pharm(){}
 
-    public Pharm(String qty, String drug, String RCN,
-                 String time, String week,String key) {
+    public Pharm(String qty, String drug, String RCN, String time, boolean check, String key, String week) {
         Qty = qty;
         Drug = drug;
         this.RCN = RCN;
         this.time = time;
-        this.week = week;
-        this.key=key;
-    }
-
-    public String getKey() {
-        return key;
-    }
-
-    public void setKey(String key) {
+        this.check = check;
         this.key = key;
+        this.week = week;
     }
 
     public String getQty() {
@@ -63,6 +56,22 @@ public class Pharm  extends RealmObject {
 
     public void setTime(String time) {
         this.time = time;
+    }
+
+    public boolean getCheck() {
+        return check;
+    }
+
+    public void setCheck(boolean check) {
+        this.check = check;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
     }
 
     public String getWeek() {

@@ -38,9 +38,9 @@ public class DeadLineAdapter extends RecyclerView.Adapter<DeadLineAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(DeadLineAdapter.ViewHolder holder, int position) {
-        holder.text_Reson.setText(item.get(position).Resone);
-        holder.text_Date.setText(item.get(position).Date);
-        holder.text_houer.setText(item.get(position).houer);
+        holder.text_Reson.setText(item.get(position).getResone());
+        holder.text_Date.setText(item.get(position).getDate());
+        holder.text_houer.setText(item.get(position).getHouer());
 
     }
 

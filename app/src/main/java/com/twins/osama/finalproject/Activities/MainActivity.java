@@ -10,9 +10,11 @@ import android.util.Log;
 import com.google.firebase.database.FirebaseDatabase;
 import com.twins.osama.finalproject.Adapters.TabsPagerAdapter;
 import com.twins.osama.finalproject.Fragments.FragmentDeadLine;
+import com.twins.osama.finalproject.Fragments.InfoFragment;
 import com.twins.osama.finalproject.Fragments.LabsFragment;
 import com.twins.osama.finalproject.Fragments.PersonalDataFragment;
 import com.twins.osama.finalproject.Fragments.PharmFragment;
+import com.twins.osama.finalproject.Fragments.TipsFragment;
 import com.twins.osama.finalproject.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -44,7 +46,8 @@ public class MainActivity extends AppCompatActivity {
         adapter.addFragment(new FragmentDeadLine(), getResources().getString(R.string.Deadlines));
         adapter.addFragment(new LabsFragment(), getResources().getString(R.string.Labs));
         adapter.addFragment(new PharmFragment(), getResources().getString(R.string.Pharm));
-
+        adapter.addFragment(new TipsFragment(), getResources().getString(R.string.tips));
+        adapter.addFragment(new InfoFragment(), getResources().getString(R.string.tips));
 
         viewPager.setAdapter(adapter);
     }

@@ -1,16 +1,23 @@
 package com.twins.osama.finalproject.Classes;
 
-import java.util.List;
+import io.realm.RealmList;
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
+import io.realm.annotations.RealmClass;
 
 /**
  * Created by Osama on 12/5/2017.
  */
-
-public class ToAccessPharmAdapter {
+@RealmClass
+public class ToAccessPharmAdapter extends RealmObject {
+    @PrimaryKey
     private String Key;
-private List<Pharm>pharms;
+    private RealmList<Pharm> pharms;
 
-    public ToAccessPharmAdapter(String key, List<Pharm> pharms) {
+    public ToAccessPharmAdapter() {
+    }
+
+    public ToAccessPharmAdapter(String key, RealmList<Pharm> pharms) {
         Key = key;
         this.pharms = pharms;
     }
@@ -23,11 +30,11 @@ private List<Pharm>pharms;
         Key = key;
     }
 
-    public List<Pharm> getPharms() {
+    public RealmList<Pharm> getPharms() {
         return pharms;
     }
 
-    public void setPharms(List<Pharm> pharms) {
+    public void setPharms(RealmList<Pharm> pharms) {
         this.pharms = pharms;
     }
 }
