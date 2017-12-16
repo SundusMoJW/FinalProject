@@ -2,7 +2,6 @@ package com.twins.osama.finalproject.Fragments;
 
 import android.os.Bundle;
 import android.os.StrictMode;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -12,22 +11,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
 import com.twins.osama.finalproject.Adapters.DeadLineAdapter;
 import com.twins.osama.finalproject.Classes.RVDeadline;
 import com.twins.osama.finalproject.Helpar.SharedPrefUtil;
-import com.twins.osama.finalproject.Helpar.Util;
 import com.twins.osama.finalproject.MyRelam.RealmController;
 import com.twins.osama.finalproject.R;
 
-import org.json.JSONObject;
-
 import java.util.ArrayList;
-import java.util.Map;
 
 import io.realm.Realm;
 
@@ -67,79 +58,79 @@ public class FragmentDeadLine extends Fragment {
         sharedPrefUtil = new SharedPrefUtil(getActivity());
         userRcnLogin = sharedPrefUtil.getString(USER_RCN_LOGIN);
         recyclerView = (RecyclerView) view.findViewById(R.id.rv_deadline);
-        rvadapter = new DeadLineAdapter(getActivity(), rvDeadlines);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerView.setAdapter(rvadapter);
+//        rvadapter = new DeadLineAdapter(getActivity(), rvDeadlines);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+//        recyclerView.setAdapter(rvadapter);
         Log.i("userRcnLogin", userRcnLogin);
 
-        if (Util.hasActiveInternetConnection(getActivity())) {
-            final Query patient = database.getReference().child("BooKApp").child(userRcnLogin);
-            if (patient != null) {
-                patient.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-//                Log.i("patient", dataSnapshot.getValue().toString());
-//                Log.i("getKeyPatient", dataSnapshot.getKey());
-//                Log.i("getRef", dataSnapshot.getRef().toString());
-//                JSONObject jsonObject = new JSONObject((Map) dataSnapshot.getValue());
-//                Log.i("jsonObject  ", jsonObject.toString());
-
-                        if (dataSnapshot.exists()) {
-//                                JSONObject dt1 = new JSONObject((Map) dataSnapshot.getValue());
-//                            RealmController.with(getActivity()).putDeadlineList(dt1);
-
-                            for (DataSnapshot data : dataSnapshot.getChildren()) {
-                                JSONObject dt = new JSONObject((Map) data.getValue());
-
-
-                                Log.i("getKey  ", data.getKey());
-
-//                                RealmController.with(getActivity()).putDeadlineList(dt);
-//                                rvDeadlines= RealmController.with(getActivity()).getDeadlineList();
-//                                rvadapter.notifyDataSetChanged();
-//                                String ApId = dt.optString("ApId");
-//                                Log.i("ApId  ", ApId);
+//        if (Util.hasActiveInternetConnection(getActivity())) {
+//            final Query patient = database.getReference().child("BooKApp").child(userRcnLogin);
+//            if (patient != null) {
+//                patient.addValueEventListener(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(DataSnapshot dataSnapshot) {
+////                Log.i("patient", dataSnapshot.getValue().toString());
+////                Log.i("getKeyPatient", dataSnapshot.getKey());
+////                Log.i("getRef", dataSnapshot.getRef().toString());
+////                JSONObject jsonObject = new JSONObject((Map) dataSnapshot.getValue());
+////                Log.i("jsonObject  ", jsonObject.toString());
 //
-//                                realm.beginTransaction();
-//                                RealmResults<RVDeadline> result = realm.where(RVDeadline.class).findAll();
-//                                if (!(result.isEmpty())) {
-//                                    result.deleteAllFromRealm();
+//                        if (dataSnapshot.exists()) {
+////                                JSONObject dt1 = new JSONObject((Map) dataSnapshot.getValue());
+////                            RealmController.with(getActivity()).putDeadlineList(dt1);
+//
+//                            for (DataSnapshot data : dataSnapshot.getChildren()) {
+//                                JSONObject dt = new JSONObject((Map) data.getValue());
+//
+//
+//                                Log.i("getKey  ", data.getKey());
+//
+////                                RealmController.with(getActivity()).putDeadlineList(dt);
+////                                rvDeadlines= RealmController.with(getActivity()).getDeadlineList();
+////                                rvadapter.notifyDataSetChanged();
+////                                String ApId = dt.optString("ApId");
+////                                Log.i("ApId  ", ApId);
+////
+////                                realm.beginTransaction();
+////                                RealmResults<RVDeadline> result = realm.where(RVDeadline.class).findAll();
+////                                if (!(result.isEmpty())) {
+////                                    result.deleteAllFromRealm();
+////                                    realm.commitTransaction();
+////                                } else realm.cancelTransaction();
+////
+//                                String Resone = dt.optString("note");
+//                                String Date = dt.optString("date");
+//                                String houer = dt.optString("clock");
+//                                int ApId = dt.optInt("ApId");
+//
+//                                Log.i("Resone  ", Resone);
+//                                Log.i("Date  ", Date);
+//                                Log.i("houer  ", houer);
+//
+//                                RVDeadline pData = new RVDeadline(Resone, ApId,Date, houer);
+//                                rvDeadlines.add(pData);
+//                            }
+//                                for (RVDeadline b : rvDeadlines) {
+//                                    realm.beginTransaction();
+//                                    realm.copyToRealmOrUpdate(b);
 //                                    realm.commitTransaction();
-//                                } else realm.cancelTransaction();
+//                                }
+//                                rvadapter = new DeadLineAdapter(getActivity(), rvDeadlines);
+//                                recyclerView.setAdapter(rvadapter);
+//                                rvadapter.notifyDataSetChanged();
+//                        } else {
+//                            if (getView() != null)
+//                                Snackbar.make(cuView, getString(R.string.acc_not_found), Snackbar.LENGTH_SHORT).show();
+//                        }
+//                    }
 //
-                                String Resone = dt.optString("note");
-                                String Date = dt.optString("date");
-                                String houer = dt.optString("clock");
-                                int ApId = dt.optInt("ApId");
-
-                                Log.i("Resone  ", Resone);
-                                Log.i("Date  ", Date);
-                                Log.i("houer  ", houer);
-
-                                RVDeadline pData = new RVDeadline(Resone, ApId,Date, houer);
-                                rvDeadlines.add(pData);
-                            }
-                                for (RVDeadline b : rvDeadlines) {
-                                    realm.beginTransaction();
-                                    realm.copyToRealmOrUpdate(b);
-                                    realm.commitTransaction();
-                                }
-                                rvadapter = new DeadLineAdapter(getActivity(), rvDeadlines);
-                                recyclerView.setAdapter(rvadapter);
-                                rvadapter.notifyDataSetChanged();
-                        } else {
-                            if (getView() != null)
-                                Snackbar.make(cuView, getString(R.string.acc_not_found), Snackbar.LENGTH_SHORT).show();
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-
-                    }
-                });
-            }
-        } else {
+//                    @Override
+//                    public void onCancelled(DatabaseError databaseError) {
+//
+//                    }
+//                });
+//            }
+//        } else {
 
            rvDeadlines= RealmController.with(getActivity()).getDeadlineList();
            if(rvDeadlines!=null&&rvDeadlines.size()!=0&&!(rvDeadlines.isEmpty()))
@@ -147,7 +138,7 @@ public class FragmentDeadLine extends Fragment {
             recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
             recyclerView.setAdapter(rvadapter);
             rvadapter.notifyDataSetChanged();
-        }
+//        }
         return view;
     }
 }

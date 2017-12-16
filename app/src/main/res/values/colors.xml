@@ -14,4 +14,6 @@
     <color name="shadow_start">#EEEEEE</color>
     <color name="backblue">#115C93E5</color>
     <color name="darkRed">#E56353</color>
+    <color name="circle_shape">#55ffffff</color>
+
 </resources>

@@ -1,126 +1,167 @@
-<?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:clickable="true"
-    android:focusable="true"
-    android:gravity="center"
-    android:layoutDirection="rtl"
-    android:orientation="vertical"
-    android:shrinkColumns="*"
-    android:stretchColumns="*"
-    android:textDirection="rtl"
-    tools:context="com.twins.osama.finalproject.Fragments.TipsFragment">
+    android:orientation="vertical">
 
-    <TableRow
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center_horizontal">
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal">
 
         <LinearLayout
-            android:id="@+id/sugar"
+            android:id="@+id/linear_profile"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:background="#990F8CA0"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="#B39D"
             android:gravity="center"
             android:orientation="vertical">
 
             <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_margin="10dp"
-                app:srcCompat="@drawable/sugar_blood_level" />
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:tint="@color/white"
+                app:srcCompat="@drawable/ic_like"
+                />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:gravity="center"
-                android:text="السكري"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:textSize="@dimen/titel" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/pressure"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:background="#0F8CA0"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_margin="10dp"
-                app:srcCompat="@drawable/pressure_gauge" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:gravity="center"
-                android:text="الضغط"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:textSize="@dimen/titel" />
-        </LinearLayout>
-    </TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center_horizontal">
-
-        <LinearLayout
-            android:id="@+id/fat"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:background="#0F8CA0"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_margin="10dp"
-                app:srcCompat="@drawable/ic_pregnant_woman" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="السمنة"
-                android:textStyle="bold"
-                android:textColor="@color/black" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/heart"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:background="#990F8CA0"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_margin="10dp"
-                app:srcCompat="@drawable/ic_like" />
-
-            <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="القلب"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:textSize="@dimen/titel" />
+                android:textColor="@color/white"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
         </LinearLayout>
-    </TableRow>
-</TableLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_groups"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="#e9f0ff"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/pressure_gauge"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="الضغط"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/linear_quizes"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="#e9f0ff"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:tint="@color/colorPrimary"
+                app:srcCompat="@drawable/ic_pregnant_woman"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="السمنة"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_students"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="#B39D"
+            android:gravity="center"
+            android:orientation="vertical">
+            <!--B39D-->
+
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/sugar_blood_level" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="السكري"
+                android:textColor="@color/white"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
+
+    <!--<?xml version="1.0" encoding="utf-8"?>--><!--<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"--><!--xmlns:app="http://schemas.android.com/apk/res-auto"--><!--xmlns:tools="http://schemas.android.com/tools"--><!--android:layout_width="match_parent"--><!--android:layout_height="match_parent"--><!--android:clickable="true"--><!--android:focusable="true"--><!--android:gravity="center"--><!--android:layoutDirection="rtl"--><!--android:orientation="vertical"--><!--android:shrinkColumns="*"--><!--android:stretchColumns="*"--><!--android:textDirection="rtl"--><!--tools:context="com.twins.osama.finalproject.Fragments.TipsFragment">-->
+
+    <!--<TableRow--><!--android:layout_width="match_parent"--><!--android:layout_height="match_parent"--><!--android:gravity="center_horizontal">-->
+
+    <!--<LinearLayout--><!--android:id="@+id/sugar"--><!--android:layout_width="wrap_content"--><!--android:layout_height="match_parent"--><!--android:background="#990F8CA0"--><!--android:gravity="center"--><!--android:orientation="vertical">-->
+
+    <!--<ImageView--><!--android:layout_width="100dp"--><!--android:layout_height="100dp"--><!--android:layout_margin="10dp"--><!--app:srcCompat="@drawable/sugar_blood_level" />-->
+
+    <!--<TextView--><!--android:layout_width="wrap_content"--><!--android:layout_height="wrap_content"--><!--android:layout_margin="10dp"--><!--android:gravity="center"--><!--android:text="السكري"--><!--android:textStyle="bold"--><!--android:textColor="@color/black"--><!--android:textSize="@dimen/titel" />--><!--</LinearLayout>-->
+
+    <!--<LinearLayout--><!--android:id="@+id/pressure"--><!--android:layout_width="wrap_content"--><!--android:layout_height="match_parent"--><!--android:background="#0F8CA0"--><!--android:gravity="center"--><!--android:orientation="vertical">-->
+
+    <!--<ImageView--><!--android:layout_width="100dp"--><!--android:layout_height="100dp"--><!--android:layout_margin="10dp"--><!--app:srcCompat="@drawable/pressure_gauge" />-->
+
+    <!--<TextView--><!--android:layout_width="wrap_content"--><!--android:layout_height="wrap_content"--><!--android:layout_margin="10dp"--><!--android:gravity="center"--><!--android:text="الضغط"--><!--android:textStyle="bold"--><!--android:textColor="@color/black"--><!--android:textSize="@dimen/titel" />--><!--</LinearLayout>--><!--</TableRow>-->
+
+    <!--<TableRow--><!--android:layout_width="match_parent"--><!--android:layout_height="match_parent"--><!--android:gravity="center_horizontal">-->
+
+    <!--<LinearLayout--><!--android:id="@+id/fat"--><!--android:layout_width="wrap_content"--><!--android:layout_height="match_parent"--><!--android:background="#0F8CA0"--><!--android:gravity="center"--><!--android:orientation="vertical">-->
+
+    <!--<ImageView--><!--android:layout_width="100dp"--><!--android:layout_height="100dp"--><!--android:layout_margin="10dp"--><!--app:srcCompat="@drawable/ic_pregnant_woman" />-->
+
+    <!--<TextView--><!--android:layout_width="wrap_content"--><!--android:layout_height="wrap_content"--><!--android:gravity="center"--><!--android:text="السمنة"--><!--android:textStyle="bold"--><!--android:textColor="@color/black" />--><!--</LinearLayout>-->
+
+    <!--<LinearLayout--><!--android:id="@+id/heart"--><!--android:layout_width="wrap_content"--><!--android:layout_height="match_parent"--><!--android:background="#990F8CA0"--><!--android:gravity="center"--><!--android:orientation="vertical">-->
+
+    <!--<ImageView--><!--android:layout_width="100dp"--><!--android:layout_height="100dp"--><!--android:layout_margin="10dp"--><!--app:srcCompat="@drawable/ic_like" />-->
+
+    <!--<TextView--><!--android:layout_width="wrap_content"--><!--android:layout_height="wrap_content"--><!--android:gravity="center"--><!--android:text="القلب"--><!--android:textStyle="bold"--><!--android:textColor="@color/black"--><!--android:textSize="@dimen/titel" />--><!--</LinearLayout>--><!--</TableRow>--><!--</TableLayout>-->
 
