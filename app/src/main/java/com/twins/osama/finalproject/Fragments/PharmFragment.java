@@ -16,6 +16,7 @@ import com.twins.osama.finalproject.Adapters.PharmAdapter;
 import com.twins.osama.finalproject.Classes.Pharm;
 import com.twins.osama.finalproject.Classes.ToAccessPharmAdapter;
 import com.twins.osama.finalproject.Helpar.SharedPrefUtil;
+import com.twins.osama.finalproject.Helpar.Util;
 import com.twins.osama.finalproject.MyRelam.RealmController;
 import com.twins.osama.finalproject.R;
 
@@ -48,6 +49,7 @@ public class PharmFragment extends Fragment {
         // Inflate the layout for this fragment
         Realm.init(getActivity());
         realm = Realm.getDefaultInstance();
+        Util.setLangSettings(getActivity());
         final View view = inflater.inflate(R.layout.fragment_pharm, container, false);
         database = FirebaseDatabase.getInstance();
         cuView = view.findViewById(R.id.linearLayout);

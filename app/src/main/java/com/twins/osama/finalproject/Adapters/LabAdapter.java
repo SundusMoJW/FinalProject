@@ -23,10 +23,12 @@ public class LabAdapter extends RecyclerView.Adapter<LabAdapter.ViewHolder>  {
     ArrayList<RvLabs> item = new ArrayList<>();
     private FragmentManager mFragmentManager;
     private FragmentTransaction mFragmentTransaction;
-    Context context;
-    public LabAdapter( Context context, ArrayList item) {
+    private Context context;
+//    private String Date;
+    public LabAdapter( Context context/*,String Date */,ArrayList <RvLabs>item) {
         this.context = context;
         this.item = item;
+//        this.Date=Date;
     }
     @Override
     public LabAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -37,9 +39,9 @@ public class LabAdapter extends RecyclerView.Adapter<LabAdapter.ViewHolder>  {
 
     @Override
     public void onBindViewHolder(LabAdapter.ViewHolder holder, int position) {
-        holder.text_nameLab.setText(item.get(position).nameLabe);
-        holder.text_DateLab.setText(item.get(position).DateLab);
-        holder.text_result.setText(item.get(position).resultLab);
+        holder.text_nameLab.setText(item.get(position).getName_Test());
+        holder.text_Result.setText(item.get(position).getTest_Result());
+        holder.dteReq.setText(item.get(position).getResult_Date());
 
     }
 
@@ -66,8 +68,8 @@ public class LabAdapter extends RecyclerView.Adapter<LabAdapter.ViewHolder>  {
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView text_nameLab;
-        TextView text_DateLab;
-        TextView text_result;
+        TextView text_Result;
+        TextView dteReq;
 
         // CardView cv;
         public ViewHolder(View view) {
@@ -75,8 +77,8 @@ public class LabAdapter extends RecyclerView.Adapter<LabAdapter.ViewHolder>  {
             //cv = (CardView) itemView.findViewById(R.id.cardView);
 
             text_nameLab = (TextView) view.findViewById(R.id.tvNameLab);
-            text_DateLab = (TextView) view.findViewById(R.id.tvDateLab);
-            text_result = (TextView) view.findViewById(R.id.tvResult);
+            text_Result = (TextView) view.findViewById(R.id.tvResult);
+            dteReq = (TextView) view.findViewById(R.id.dteReq);
 
         }
 

@@ -15,6 +15,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.twins.osama.finalproject.Adapters.DeadLineAdapter;
 import com.twins.osama.finalproject.Classes.RVDeadline;
 import com.twins.osama.finalproject.Helpar.SharedPrefUtil;
+import com.twins.osama.finalproject.Helpar.Util;
 import com.twins.osama.finalproject.MyRelam.RealmController;
 import com.twins.osama.finalproject.R;
 
@@ -52,6 +53,7 @@ public class FragmentDeadLine extends Fragment {
         this.realm = RealmController.with(getActivity()).getRealm();
 //        Realm.init(getActivity());
 //        realm = Realm.getDefaultInstance();
+        Util.setLangSettings(getActivity());
         View view = inflater.inflate(R.layout.fragment_dead_line, container, false);
         cuView = view.findViewById(R.id.linearLayout);
         database = FirebaseDatabase.getInstance();
@@ -133,12 +135,12 @@ public class FragmentDeadLine extends Fragment {
 //        } else {
 
            rvDeadlines= RealmController.with(getActivity()).getDeadlineList();
-           if(rvDeadlines!=null&&rvDeadlines.size()!=0&&!(rvDeadlines.isEmpty()))
+           if(rvDeadlines!=null&&rvDeadlines.size()!=0&&!(rvDeadlines.isEmpty())){
                rvadapter = new DeadLineAdapter(getActivity(), rvDeadlines);
             recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
             recyclerView.setAdapter(rvadapter);
             rvadapter.notifyDataSetChanged();
-//        }
+        }
         return view;
     }
 }

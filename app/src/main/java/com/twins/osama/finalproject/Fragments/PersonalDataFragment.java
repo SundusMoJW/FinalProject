@@ -17,6 +17,7 @@ import com.twins.osama.finalproject.Adapters.PharmAdapter;
 import com.twins.osama.finalproject.Classes.PersonalData;
 import com.twins.osama.finalproject.Classes.Pharm;
 import com.twins.osama.finalproject.Classes.RVDeadline;
+import com.twins.osama.finalproject.Classes.RvLabs;
 import com.twins.osama.finalproject.Classes.ToAccessPharmAdapter;
 import com.twins.osama.finalproject.Helpar.SharedPrefUtil;
 import com.twins.osama.finalproject.Helpar.Util;
@@ -57,6 +58,7 @@ public class PersonalDataFragment extends Fragment {
     private String userRcnLogin;
     private SharedPrefUtil sharedPrefUtil;
     private ArrayList<RVDeadline> rvDeadlines = new ArrayList<>();
+    private ArrayList<RvLabs> labs;
 
     public static PersonalDataFragment newInstance() {
         PersonalDataFragment fragment = new PersonalDataFragment();
@@ -73,6 +75,7 @@ public class PersonalDataFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        Util.setLangSettings(getActivity());
         View view = inflater.inflate(R.layout.fragment_personal_data, container, false);
         findViews(view);
         realmPersonalDataResults = realm.where(PersonalData.class).findAll();
@@ -92,7 +95,7 @@ public class PersonalDataFragment extends Fragment {
 
         getDedline();
         getPharm();
-
+        getLab();
         return view;
 
     }
@@ -111,7 +114,7 @@ public class PersonalDataFragment extends Fragment {
 
     }
 
-    public void getPharm() {
+    private void getPharm() {
         final Query patient = database.getReference().child("AddPharmacy").child(userRcnLogin);
         if (patient != null) {
             patient.addValueEventListener(new ValueEventListener() {
@@ -162,7 +165,7 @@ public class PersonalDataFragment extends Fragment {
         }
     }
 
-    public void getDedline(){
+    private void getDedline(){
         final Query patient = database.getReference().child("BooKApp").child(userRcnLogin);
         if (patient != null) {
             patient.addValueEventListener(new ValueEventListener() {
@@ -218,6 +221,56 @@ public class PersonalDataFragment extends Fragment {
                 @Override
                 public void onCancelled(DatabaseError databaseError) {
 
+                }
+            });
+        }
+    }
+
+    private void getLab(){
+        final Query patient = database.getReference().child("AddLab").child(userRcnLogin);
+        if (patient != null) {
+            patient.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+//                Log.i("Pharmacy", dataSnapshot.getValue().toString());
+//                Log.i("getKeyPharmacy", dataSnapshot.getKey());
+//                Log.i("getRef", dataSnapshot.getRef().toString());
+                    JSONObject jsonObject = new JSONObject((Map) dataSnapshot.getValue());
+                    if (dataSnapshot.exists()) {
+                        for (DataSnapshot data : dataSnapshot.getChildren()) {
+                            Log.e("dataLab  ", data.getValue().toString());
+//                            timeSpend = data.getKey() + "";
+//                            Long date = Long.parseLong(timeSpend);
+//                            newtimeSpend = Util.getDate(date);
+//                            arrPharms = new RealmList<>();
+//                            arrPharms.clear();
+                            labs = new ArrayList<>();
+                            labs.clear();
+                            for (DataSnapshot dataLab : data.getChildren()) {
+                                Log.e("dataLab ", dataLab.getValue().toString());
+                                JSONObject dt = new JSONObject((Map) dataLab.getValue());
+                                if (dt.optBoolean("isResult")) {
+                                    RvLabs rvLabs = new RvLabs(dt.optString("Name_Test"), dt.optString("Request_By"),
+                                            dt.optString("Result_By"), dt.optString("Result_Date"),
+                                            dt.optString("Test_Result"),
+                                            dt.optBoolean("isResult"));
+                                    labs.add(rvLabs);
+                                }
+                            }
+                        }
+                        for (RvLabs b : labs) {
+                            realm.beginTransaction();
+                            realm.copyToRealm(b);
+                            realm.commitTransaction();
+                        }
+                    } else {
+//                        if (getView() != null)
+//                            Snackbar.make(cuView, getString(R.string.acc_not_found), Snackbar.LENGTH_SHORT).show();
+                    }
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
                 }
             });
         }

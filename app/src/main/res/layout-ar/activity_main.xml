@@ -3,6 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:layoutDirection="rtl"
+    android:textDirection="rtl"
     android:layout_height="match_parent"
     tools:context="com.twins.osama.finalproject.Activities.MainActivity"
     android:orientation="vertical">
@@ -32,7 +34,7 @@
                     android:id="@+id/menu"
                     android:layout_width="?actionBarSize"
                     android:layout_height="?actionBarSize"
-                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
                     android:padding="15dp"
                     app:srcCompat="@drawable/ic_settings_white" />

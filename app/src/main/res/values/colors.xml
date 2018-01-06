@@ -13,7 +13,8 @@
     <color name="black">#FF040303</color>
     <color name="shadow_start">#EEEEEE</color>
     <color name="backblue">#115C93E5</color>
+    <color name="overlayblue">#555C93E5</color>
     <color name="darkRed">#E56353</color>
     <color name="circle_shape">#55ffffff</color>
-
+    <color name="dark">#800000</color>
 </resources>

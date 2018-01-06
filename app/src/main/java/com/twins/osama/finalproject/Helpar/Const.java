@@ -9,5 +9,6 @@ public class Const {
     public static final String USER_SSN_LOGIN="USER_SSN";
     public static final String STATUS_SHARED_PREF="STATUS";
     public static final String FCM_TOKEN_SHARED_PREF="fcm_token";
+    public static final String LANG = "language";
 
 }

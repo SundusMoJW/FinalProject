@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Chronic Diseases and Health Care System</string>
-    <string name="NCD_Patient_Handbook">NCD Patient Handbook</string>
+    <string name="NCD_Patient_Handbook">Chronic patient Follow-up </string>
     <string name="AddSNN">  Enter SNN </string>
     <string name="Login"> Login  </string>
     <string name="unrwa"> Chronic Diseases </string>
@@ -38,5 +38,10 @@
     <string name="invalid_login">Invalid RCN or Password</string>
     <string name="acc_not_found">This account not found</string>
     <string name="time_spend">Time Spend:</string>
+    <string name="about_app">About App</string>
+    <string name="logout">Logout</string>
+    <string name="language_app">Language App</string>
+    <string name="setting">Setting</string>
+    <string name="date_result">Date Result</string>
 
 </resources>

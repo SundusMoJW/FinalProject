@@ -4,61 +4,102 @@
     android:id="@+id/cardView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="18dp"
+    android:layout_marginBottom="5dp"
     android:background="#ffffff"
     android:clickable="true"
     android:focusable="true"
     android:layoutDirection="ltr"
     android:textDirection="ltr"
-    app:cardElevation="2dp">
+    app:cardElevation="5dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_margin="5dp"
         android:background="#ffffff"
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:text="@string/NameLab"
+            android:text="@string/date_result"
+            android:layout_margin="5dp"
             android:textColor="@color/black"
-            android:textSize="@dimen/titel" />
-
-        <TextView
-            android:id="@+id/tvNameLab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginLeft="20dp"
-            android:text=" ResonVisite"
-            android:textColor="@color/colorPrimaryDark"
             android:textSize="@dimen/textSize" />
 
         <TextView
+            android:id="@+id/dteReq"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:text="@string/Date"
-            android:textColor="@color/black"
+            android:text="2/10/2"
+            android:layout_margin="5dp"
+            android:textColor="@color/darkRed"
             android:textSize="@dimen/titel" />
-
-        <TextView
-            android:id="@+id/tvDateLab"
-
+<View
+    android:layout_width="match_parent"
+    android:layout_height="1dp"
+    android:layout_margin="2dp"
+    android:background="@color/dark"/>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:text="2222222"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="@dimen/textSize" />
+            android:layout_margin="5dp"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/NameLab"
+                android:textColor="@color/black"
+                android:textSize="@dimen/titel" />
+
+            <TextView
+                android:id="@+id/tvNameLab"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center_vertical"
+                android:text=" Reason Visit"
+                android:textColor="@color/cardview_dark_background"
+                android:textSize="@dimen/textSize" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:orientation="horizontal"
+            android:padding="5dp"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/Date"
+                android:textColor="@color/black"
+                android:textSize="@dimen/titel" />
+
+            <TextView
+                android:id="@+id/tvDateLab"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center_vertical"
+                android:text=""
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/textSize" />
+
+        </LinearLayout>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:layout_margin="5dp"
+            android:padding="5dp"
             android:text="@string/Rersult"
             android:textColor="@color/black"
             android:textSize="@dimen/titel" />
@@ -67,10 +108,11 @@
             android:id="@+id/tvResult"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:text="2222222"
-            android:textColor="@color/colorPrimaryDark"
+            android:layout_margin="5dp"
+            android:gravity="center_vertical"
+            android:padding="5dp"
+            android:text=""
+            android:textColor="@color/cardview_dark_background"
             android:textSize="@dimen/textSize" />
-
-           </LinearLayout>
+    </LinearLayout>
 </android.support.v7.widget.CardView>

@@ -1,17 +1,57 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layoutDirection="rtl"
     android:orientation="vertical"
     android:textDirection="rtl"
     tools:context="com.twins.osama.finalproject.Fragments.InfoFragment">
 
-    <!--<WebView-->
-    <!--android:id="@+id/webview"-->
-    <!--android:layout_margin="5dp"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent" />-->
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_alignParentTop="true"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:background="@color/colorPrimary"
+            app:contentInsetEnd="0dp"
+            app:contentInsetLeft="0dp"
+            app:contentInsetRight="0dp"
+            app:contentInsetStart="0dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/menu"
+                    android:layout_width="?actionBarSize"
+                    android:layout_height="?actionBarSize"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:padding="15dp"
+                    app:srcCompat="@drawable/ic_settings_white" />
+
+                <TextView
+                    android:id="@+id/tv_title"
+                    style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse"
+                    android:layout_width="wrap_content"
+                    android:layout_height="?actionBarSize"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="?attr/actionBarSize"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:text="نصائح لمرضى السكري"
+                    android:textSize="@dimen/titel" />
+            </RelativeLayout>
+        </android.support.v7.widget.Toolbar>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/toolbar">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -27,19 +67,19 @@
             android:id="@+id/select1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorBlueDark"
+            android:background="@color/overlayblue"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="?actionBarSize"
                 android:layout_weight="1"
-                android:background="@color/colorBlueDark"
+                android:background="@color/overlayblue"
                 android:clickable="true"
                 android:gravity="center_vertical"
                 android:padding="5dp"
                 android:text="أنماط السكري"
-                android:textColor="@color/white"
+                android:textColor="@color/dark"
                 android:textSize="@dimen/textSize"
                 android:textStyle="bold"
                 android:visibility="visible"
@@ -52,7 +92,7 @@
                 android:layout_width="0dp"
                 android:layout_height="?actionBarSize"
                 android:layout_weight="0.1"
-                android:background="@color/colorBlueDark"
+                android:background="@color/overlayblue"
                 android:src="@drawable/ic_keyboard_arrow_up_white"
                 android:visibility="gone" />
 
@@ -61,7 +101,7 @@
                 android:layout_width="0dp"
                 android:layout_height="?actionBarSize"
                 android:layout_weight="0.1"
-                android:background="@color/colorBlueDark"
+                android:background="@color/overlayblue"
                 android:src="@drawable/ic_keyboard_arrow_down_white" />
 
         </LinearLayout>
@@ -70,7 +110,8 @@
             android:id="@+id/webview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp" />
+            android:layout_margin="5dp"
+            android:visibility="gone"/>
 
         <View
             android:layout_width="match_parent"
@@ -81,23 +122,22 @@
             android:id="@+id/select2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorBlueDark"
+            android:background="@color/overlayblue"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="?actionBarSize"
                 android:layout_weight="1"
-                android:background="@color/colorBlueDark"
+                android:background="@color/overlayblue"
                 android:clickable="true"
                 android:gravity="center_vertical"
                 android:padding="5dp"
                 android:text="النظام الغذائي"
-                android:textColor="@color/white"
+                android:textColor="@color/dark"
                 android:textSize="@dimen/textSize"
                 android:textStyle="bold"
                 android:visibility="visible"
-
                 />
 
 
@@ -106,7 +146,7 @@
                 android:layout_width="0dp"
                 android:layout_height="?actionBarSize"
                 android:layout_weight="0.1"
-                android:background="@color/colorBlueDark"
+                android:background="@color/overlayblue"
                 android:src="@drawable/ic_keyboard_arrow_up_white"
                 android:visibility="gone" />
 
@@ -115,7 +155,7 @@
                 android:layout_width="0dp"
                 android:layout_height="?actionBarSize"
                 android:layout_weight="0.1"
-                android:background="@color/colorBlueDark"
+                android:background="@color/overlayblue"
                 android:src="@drawable/ic_keyboard_arrow_down_white" />
 
         </LinearLayout>
@@ -137,19 +177,19 @@
             android:id="@+id/select3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorBlueDark"
+            android:background="@color/overlayblue"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="?actionBarSize"
                 android:layout_weight="1"
-                android:background="@color/colorBlueDark"
+                android:background="@color/overlayblue"
                 android:clickable="true"
                 android:gravity="center_vertical"
                 android:padding="5dp"
                 android:text="العناية بالقدمين"
-                android:textColor="@color/white"
+                android:textColor="@color/dark"
                 android:textSize="@dimen/textSize"
                 android:textStyle="bold"
                 android:visibility="visible"
@@ -162,7 +202,7 @@
                 android:layout_width="0dp"
                 android:layout_height="?actionBarSize"
                 android:layout_weight="0.1"
-                android:background="@color/colorBlueDark"
+                android:background="@color/overlayblue"
                 android:src="@drawable/ic_keyboard_arrow_up_white"
                 android:visibility="gone" />
 
@@ -171,7 +211,7 @@
                 android:layout_width="0dp"
                 android:layout_height="?actionBarSize"
                 android:layout_weight="0.1"
-                android:background="@color/colorBlueDark"
+                android:background="@color/overlayblue"
                 android:src="@drawable/ic_keyboard_arrow_down_white" />
 
         </LinearLayout>
@@ -191,19 +231,19 @@
             android:id="@+id/select4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorBlueDark"
+            android:background="@color/overlayblue"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="?actionBarSize"
                 android:layout_weight="1"
-                android:background="@color/colorBlueDark"
+                android:background="@color/overlayblue"
                 android:clickable="true"
                 android:gravity="center_vertical"
                 android:padding="5dp"
                 android:text="التعايش الآمن مع مرض السكري"
-                android:textColor="@color/white"
+                android:textColor="@color/dark"
                 android:textSize="@dimen/textSize"
                 android:textStyle="bold"
                 android:visibility="visible"
@@ -216,7 +256,7 @@
                 android:layout_width="0dp"
                 android:layout_height="?actionBarSize"
                 android:layout_weight="0.1"
-                android:background="@color/colorBlueDark"
+                android:background="@color/overlayblue"
                 android:src="@drawable/ic_keyboard_arrow_up_white"
                 android:visibility="gone" />
 
@@ -225,7 +265,7 @@
                 android:layout_width="0dp"
                 android:layout_height="?actionBarSize"
                 android:layout_weight="0.1"
-                android:background="@color/colorBlueDark"
+                android:background="@color/overlayblue"
                 android:src="@drawable/ic_keyboard_arrow_down_white" />
 
         </LinearLayout>
@@ -245,19 +285,19 @@
             android:id="@+id/select5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorBlueDark"
+            android:background="@color/overlayblue"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="?actionBarSize"
                 android:layout_weight="1"
-                android:background="@color/colorBlueDark"
+                android:background="@color/overlayblue"
                 android:clickable="true"
                 android:gravity="center_vertical"
                 android:padding="5dp"
                 android:text="معالجة السكري بالأنسولين"
-                android:textColor="@color/white"
+                android:textColor="@color/dark"
                 android:textSize="@dimen/textSize"
                 android:textStyle="bold"
                 android:visibility="visible"
@@ -270,7 +310,7 @@
                 android:layout_width="0dp"
                 android:layout_height="?actionBarSize"
                 android:layout_weight="0.1"
-                android:background="@color/colorBlueDark"
+                android:background="@color/overlayblue"
                 android:src="@drawable/ic_keyboard_arrow_up_white"
                 android:visibility="gone" />
 
@@ -279,7 +319,7 @@
                 android:layout_width="0dp"
                 android:layout_height="?actionBarSize"
                 android:layout_weight="0.1"
-                android:background="@color/colorBlueDark"
+                android:background="@color/overlayblue"
                 android:src="@drawable/ic_keyboard_arrow_down_white" />
 
         </LinearLayout>
@@ -291,4 +331,5 @@
             android:layout_margin="5dp"
             android:visibility="gone" />
     </LinearLayout>
-</LinearLayout>
+</ScrollView>
+</RelativeLayout>

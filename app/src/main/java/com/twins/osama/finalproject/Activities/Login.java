@@ -22,6 +22,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.twins.osama.finalproject.Classes.PersonalData;
 import com.twins.osama.finalproject.Helpar.SharedPrefUtil;
+import com.twins.osama.finalproject.Helpar.Util;
 import com.twins.osama.finalproject.R;
 
 import org.json.JSONObject;
@@ -52,6 +53,7 @@ public class Login extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Util.setLangSettings(this);
         setContentView(R.layout.activity_login);
         LoginUser = (EditText) findViewById(R.id.LoginUser);
         LoginPassword = (EditText) findViewById(R.id.LoginPassword);

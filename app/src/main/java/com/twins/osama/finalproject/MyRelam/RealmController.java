@@ -5,6 +5,7 @@ import android.app.Application;
 import android.app.Fragment;
 
 import com.twins.osama.finalproject.Classes.RVDeadline;
+import com.twins.osama.finalproject.Classes.RvLabs;
 import com.twins.osama.finalproject.Classes.ToAccessPharmAdapter;
 
 import org.json.JSONArray;
@@ -82,38 +83,11 @@ public class RealmController {
         RealmResults<ToAccessPharmAdapter> toAccessPharmAdapters = realm.where(ToAccessPharmAdapter.class).findAll();
         return (ArrayList<ToAccessPharmAdapter>) realm.copyFromRealm(toAccessPharmAdapters);
     }
+
+    public ArrayList<RvLabs> getLabList() {
+        RealmResults<RvLabs> toAccessPharmAdapters = realm.where(RvLabs.class).findAll();
+        return (ArrayList<RvLabs>) realm.copyFromRealm(toAccessPharmAdapters);
+    }
 }
 
-//
-//    public void putMarketList(JSONArray marketList) {
-//        realm.beginTransaction();
-//        realm.createOrUpdateAllFromJson(Market.class, marketList);
-//        realm.commitTransaction();
-//    }
-//
-//    public void putTypeList(JSONArray typeList) {
-//        realm.beginTransaction();
-//        realm.createOrUpdateAllFromJson(TypeList.class, typeList);
-//        realm.commitTransaction();
-//    }
-//
-//    public void putSliderImage(JSONArray sliderImage) {
-//        realm.beginTransaction();
-//        realm.createOrUpdateAllFromJson(Slider.class, sliderImage);
-//        realm.commitTransaction();
-//    }
-//    public RealmResults<CartItem> getCartItems() {
-//        return realm.where(CartItem.class).findAll();
-//    }
-//
-//    public CartItem cheackCartItem(int id,int idTypeList) {
-//        return realm.where(CartItem.class).equalTo("Id",id).equalTo("IdTypeList",idTypeList).findFirst();
-//    }
-//
-//    public void putInCartItem(CartItem cartItem){
-//        realm.beginTransaction();
-//        realm.copyToRealm(cartItem);
-//        realm.commitTransaction();
-//    }
-//    public void getMarketAdditionsAPI(){}
-//}
+
