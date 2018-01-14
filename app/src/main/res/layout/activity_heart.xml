@@ -41,7 +41,7 @@
                 android:layout_gravity="center"
                 android:layout_marginStart="?attr/actionBarSize"
                 android:gravity="center"
-                android:text="نصائح لمرضى السمنة"
+                android:text="نصائح لمرضى القلب"
                 android:textColor="@color/white"
                 android:textSize="@dimen/titel" />
         </RelativeLayout>
@@ -57,13 +57,11 @@
             android:layout_height="match_parent"
             android:background="@color/white"
             android:orientation="vertical">
-
-            <WebView
-                android:id="@+id/webview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp" />
-        </LinearLayout>
+    <WebView
+        android:id="@+id/webview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp" />
+</LinearLayout>
     </ScrollView>
 </RelativeLayout>
-

@@ -10,23 +10,23 @@ import android.widget.ImageView;
 import com.twins.osama.finalproject.Helpar.Util;
 import com.twins.osama.finalproject.R;
 
-public class PregnantActivity extends AppCompatActivity {
+public class HeartActivity extends AppCompatActivity {
     private ImageView menu;
     private WebView webview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pregnant);
+        setContentView(R.layout.activity_heart);
         menu = (ImageView) findViewById(R.id.menu);
         menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(PregnantActivity.this, SettingActivity.class));
+                startActivity(new Intent(HeartActivity.this, SettingActivity.class));
             }
         });
         webview = (WebView) findViewById(R.id.webview);
-        webview.loadUrl("file:///android_asset/temp7.html");
+        webview.loadUrl("file:///android_asset/tem8.html");
         webview.getSettings().setJavaScriptEnabled(true);
         webview.getSettings().setSaveFormData(true);
         webview.getSettings().setBuiltInZoomControls(true);

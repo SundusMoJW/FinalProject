@@ -61,20 +61,20 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_alignParentRight="true"
-                    android:src="@drawable/blank_profile_picture" />
+                    android:src="@drawable/icon" />
 
-                <TextView
-                    android:id="@+id/pluse"
-                    android:layout_width="@dimen/ic_size"
-                    android:layout_height="@dimen/ic_size"
-                    android:layout_alignBottom="@id/circleView"
-                    android:layout_alignLeft="@id/circleView"
-                    android:layout_marginLeft="35dp"
-                    android:background="@drawable/circle_shape_white"
-                    android:gravity="center"
-                    android:text="+"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="@dimen/titel" />
+                <!--<TextView-->
+                    <!--android:id="@+id/pluse"-->
+                    <!--android:layout_width="@dimen/ic_size"-->
+                    <!--android:layout_height="@dimen/ic_size"-->
+                    <!--android:layout_alignBottom="@id/circleView"-->
+                    <!--android:layout_alignLeft="@id/circleView"-->
+                    <!--android:layout_marginLeft="35dp"-->
+                    <!--android:background="@drawable/circle_shape_white"-->
+                    <!--android:gravity="center"-->
+                    <!--android:text="+"-->
+                    <!--android:textColor="@color/colorPrimaryDark"-->
+                    <!--android:textSize="@dimen/titel" />-->
             </RelativeLayout>
 
             <View

@@ -16,7 +16,10 @@ import com.twins.osama.finalproject.R;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 
 /**
@@ -88,5 +91,25 @@ public class Util {
             return false;
         }
         return false;
+    }
+    public static boolean compareDate(String time) {
+        Date d;
+        String s="";
+        try {
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            d = sdf.parse(time);
+            Date currentTime = Calendar.getInstance().getTime();
+            Log.i("currentDte",currentTime+"");
+            Log.i("afterDate",d+"");
+        if (currentTime.after(d)) {
+            return true;
+        }
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+//        Calendar c = Calendar.getInstance();
+//        c.setTimeInMillis(time);
+//        Date d = c.getTime();
+return false;
     }
  }

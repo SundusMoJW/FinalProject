@@ -10,6 +10,9 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.twins.osama.finalproject.Activities.HeartActivity;
+import com.twins.osama.finalproject.Activities.HtnActivity;
+import com.twins.osama.finalproject.Activities.PregnantActivity;
 import com.twins.osama.finalproject.Activities.sugarInfoActivity;
 import com.twins.osama.finalproject.R;
 
@@ -44,21 +47,21 @@ public class TipsFragment extends Fragment {
         linearHtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(getActivity(),sugarInfoActivity.class);
+                Intent intent=new Intent(getActivity(),HtnActivity.class);
                 startActivity(intent);
             }
         });
         linearPregnant.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(getActivity(),sugarInfoActivity.class);
+                Intent intent=new Intent(getActivity(),PregnantActivity.class);
                 startActivity(intent);
             }
         });
         linearHeart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(getActivity(),sugarInfoActivity.class);
+                Intent intent=new Intent(getActivity(),HeartActivity.class);
                 startActivity(intent);
 
             }

@@ -67,7 +67,7 @@ public class sugarInfoActivity extends AppCompatActivity {
                     webview3.setVisibility(View.GONE);
                     webview4.setVisibility(View.GONE);
                     webview5.setVisibility(View.GONE);
-                    webview.loadUrl("file:///android_asset/index1.html");
+                    webview.loadUrl("file:///android_asset/temp1.html");
                     webview.getSettings().setJavaScriptEnabled(true);
                     webview.getSettings().setSaveFormData(true);
                     webview.getSettings().setBuiltInZoomControls(true);
@@ -102,7 +102,7 @@ public class sugarInfoActivity extends AppCompatActivity {
                     webview3.setVisibility(View.GONE);
                     webview4.setVisibility(View.GONE);
                     webview5.setVisibility(View.GONE);
-                    webview2.loadUrl("file:///android_asset/index1.html");
+                    webview2.loadUrl("file:///android_asset/template.html");
                     webview2.getSettings().setJavaScriptEnabled(true);
                     webview2.getSettings().setSaveFormData(true);
                     webview2.getSettings().setBuiltInZoomControls(true);
@@ -137,7 +137,7 @@ public class sugarInfoActivity extends AppCompatActivity {
                     webview3.setVisibility(View.VISIBLE);
                     webview4.setVisibility(View.GONE);
                     webview5.setVisibility(View.GONE);
-                    webview3.loadUrl("file:///android_asset/index1.html");
+                    webview3.loadUrl("file:///android_asset/templat3.html");
                     webview3.getSettings().setJavaScriptEnabled(true);
                     webview3.getSettings().setSaveFormData(true);
                     webview3.getSettings().setBuiltInZoomControls(true);
@@ -172,7 +172,7 @@ public class sugarInfoActivity extends AppCompatActivity {
                 webview3.setVisibility(View.GONE);
                 webview4.setVisibility(View.VISIBLE);
                 webview5.setVisibility(View.GONE);
-                webview4.loadUrl("file:///android_asset/index1.html");
+                webview4.loadUrl("file:///android_asset/temp4.html");
                 webview4.getSettings().setJavaScriptEnabled(true);
                 webview4.getSettings().setSaveFormData(true);
                 webview4.getSettings().setBuiltInZoomControls(true);
@@ -207,7 +207,7 @@ public class sugarInfoActivity extends AppCompatActivity {
                 webview3.setVisibility(View.GONE);
                 webview4.setVisibility(View.GONE);
                 webview5.setVisibility(View.VISIBLE);
-                webview5.loadUrl("file:///android_asset/index1.html");
+                webview5.loadUrl("file:///android_asset/templat2.html");
                 webview5.getSettings().setJavaScriptEnabled(true);
                 webview5.getSettings().setSaveFormData(true);
                 webview5.getSettings().setBuiltInZoomControls(true);

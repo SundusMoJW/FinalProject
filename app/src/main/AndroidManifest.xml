@@ -27,7 +27,8 @@
         <activity android:name=".Activities.SettingActivity" />
         <activity android:name=".Activities.sugarInfoActivity" />
         <activity android:name=".Activities.HtnActivity" />
-        <activity android:name=".Activities.PregnantActivity"></activity>
+        <activity android:name=".Activities.PregnantActivity" />
+        <activity android:name=".Activities.HeartActivity"></activity>
     </application>
 
 </manifest>

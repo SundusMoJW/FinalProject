@@ -35,6 +35,7 @@ import io.realm.RealmList;
 import io.realm.RealmResults;
 
 import static com.twins.osama.finalproject.Helpar.Const.USER_RCN_LOGIN;
+import static com.twins.osama.finalproject.Helpar.Util.compareDate;
 
 
 public class PersonalDataFragment extends Fragment {
@@ -104,7 +105,7 @@ public class PersonalDataFragment extends Fragment {
         peronalName = (TextView) view.findViewById(R.id.peronal_name);
         tvaddress = (TextView) view.findViewById(R.id.tvaddress);
         circleView = (CircleImageView) view.findViewById(R.id.circleView);
-        pluse = (TextView) view.findViewById(R.id.pluse);
+//        pluse = (TextView) view.findViewById(R.id.pluse);
         rcnUser = (TextView) view.findViewById(R.id.rcn_user);
         rrsnIdUser = (TextView) view.findViewById(R.id.rrsn_id_user);
         teamUser = (TextView) view.findViewById(R.id.team_user);
@@ -165,7 +166,7 @@ public class PersonalDataFragment extends Fragment {
         }
     }
 
-    private void getDedline(){
+    private void getDedline() {
         final Query patient = database.getReference().child("BooKApp").child(userRcnLogin);
         if (patient != null) {
             patient.addValueEventListener(new ValueEventListener() {
@@ -181,36 +182,25 @@ public class PersonalDataFragment extends Fragment {
                         for (DataSnapshot data : dataSnapshot.getChildren()) {
                             JSONObject dt = new JSONObject((Map) data.getValue());
                             Log.i("getKey  ", data.getKey());
-
-//                                RealmController.with(getActivity()).putDeadlineList(dt);
-//                                rvDeadlines= RealmController.with(getActivity()).getDeadlineList();
-//                                rvadapter.notifyDataSetChanged();
-//                                String ApId = dt.optString("ApId");
-//                                Log.i("ApId  ", ApId);
-//
-//                                realm.beginTransaction();
-//                                RealmResults<RVDeadline> result = realm.where(RVDeadline.class).findAll();
-//                                if (!(result.isEmpty())) {
-//                                    result.deleteAllFromRealm();
-//                                    realm.commitTransaction();
-//                                } else realm.cancelTransaction();
-//
-                            String Resone = dt.optString("note");
                             String Date = dt.optString("date");
-                            String houer = dt.optString("clock");
-                            int ApId = dt.optInt("ApId");
+                            if (compareDate(Date)) {
+                                String Resone = dt.optString("note");
+//                            String Date = dt.optString("date");
+                                String houer = dt.optString("clock");
+                                int ApId = dt.optInt("ApId");
 
-                            Log.i("Resone  ", Resone);
-                            Log.i("Date  ", Date);
-                            Log.i("houer  ", houer);
+                                Log.i("Resone  ", Resone);
+                                Log.i("Date  ", Date);
+                                Log.i("houer  ", houer);
 
-                            RVDeadline pData = new RVDeadline(Resone, ApId,Date, houer);
-                            rvDeadlines.add(pData);
-                        }
-                        for (RVDeadline b : rvDeadlines) {
-                            realm.beginTransaction();
-                            realm.copyToRealmOrUpdate(b);
-                            realm.commitTransaction();
+                                RVDeadline pData = new RVDeadline(Resone, ApId, Date, houer);
+                                rvDeadlines.add(pData);
+                            }
+                            for (RVDeadline b : rvDeadlines) {
+                                realm.beginTransaction();
+                                realm.copyToRealmOrUpdate(b);
+                                realm.commitTransaction();
+                            }
                         }
                     } else {
 //                        if (getView() != null)
@@ -226,7 +216,7 @@ public class PersonalDataFragment extends Fragment {
         }
     }
 
-    private void getLab(){
+    private void getLab() {
         final Query patient = database.getReference().child("AddLab").child(userRcnLogin);
         if (patient != null) {
             patient.addValueEventListener(new ValueEventListener() {
@@ -239,16 +229,24 @@ public class PersonalDataFragment extends Fragment {
                     if (dataSnapshot.exists()) {
                         for (DataSnapshot data : dataSnapshot.getChildren()) {
                             Log.e("dataLab  ", data.getValue().toString());
+                                realm.beginTransaction();
+                                RealmResults<RvLabs> result = realm.where(RvLabs.class).findAll();
+                                if (!(result.isEmpty())) {
+                                    result.deleteAllFromRealm();
+                                    realm.commitTransaction();
+                                } else realm.cancelTransaction();
 //                            timeSpend = data.getKey() + "";
 //                            Long date = Long.parseLong(timeSpend);
 //                            newtimeSpend = Util.getDate(date);
 //                            arrPharms = new RealmList<>();
 //                            arrPharms.clear();
+
                             labs = new ArrayList<>();
                             labs.clear();
                             for (DataSnapshot dataLab : data.getChildren()) {
                                 Log.e("dataLab ", dataLab.getValue().toString());
                                 JSONObject dt = new JSONObject((Map) dataLab.getValue());
+
                                 if (dt.optBoolean("isResult")) {
                                     RvLabs rvLabs = new RvLabs(dt.optString("Name_Test"), dt.optString("Request_By"),
                                             dt.optString("Result_By"), dt.optString("Result_Date"),
